@@ -34,4 +34,4 @@ Ziel ist es ...
 
 ## Schritt 5
 
-![Bild](https://github.com/fave-smartfeld/pxt-smart-toilet-tutorial/blob/master/docs/static/pxt-smart-toilet-tutorial/IoTCube_white.jpg)
+![Bild](/static/pxt-smart-toilet-tutorial/IoTCube_white.jpg)
