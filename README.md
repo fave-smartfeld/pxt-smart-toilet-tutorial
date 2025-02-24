@@ -1,14 +1,12 @@
 
 > Diese Seite bei [https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/) öffnen
 
-## Als Erweiterung verwenden
+## Als Tutorial öffnen
 
-Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
+Dieses Repository kann als **Tutorial** in MakeCode gestartet werden.
 
-* öffne [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* klicke auf **Neues Projekt**
-* klicke auf **Erweiterungen** unter dem Zahnrad-Menü
-* nach **https://github.com/fave-smartfeld/pxt-smart-toilet-tutorial** suchen und importieren
+* öffne das [Smart Toilets Tutorial](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilets)
+* arbeite die einzelnen Schritte durch
 
 ## Dieses Projekt bearbeiten
 
