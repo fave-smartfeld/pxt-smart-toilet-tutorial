@@ -33,7 +33,9 @@ Ziel ist es ...
 * Step 2 ``||loops:Schleifen||`` erstellen
 
 ```blocks
-let seifenstandInProzent = 100
+let seifenstandInProzent = 100;
+// @highlight
+let test = 'a';
 ```
 
 ## Schritt 5
