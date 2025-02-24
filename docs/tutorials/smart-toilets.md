@@ -29,7 +29,9 @@ Ziel ist es ...
 
 ## Schritt 4
 
-Ziel ist es ...
-
 * Abschliessend... 
 * Step 2 ``||loops:Schleifen||`` erstellen
+
+## Schritt 5
+
+![Bild](https://github.com/fave-smartfeld/pxt-smart-toilet-iot-tutorial/blob/master/docs/static/pxt-smart-toilet-tutorial/IoTCube_white.jpg)
