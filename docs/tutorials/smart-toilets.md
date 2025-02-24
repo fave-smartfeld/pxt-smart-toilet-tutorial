@@ -9,13 +9,15 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 Ziel ist es ...
 
 * Das Tutorialtool beherrschen
-* Step 2 ``||variables:Variablenname||`` erstellen
+* Step 1 ``||SmartfeldSensoren:Testname||`` erstellen
+* Step 2 ``||IoTCube:Variablenname||`` erstellen
+* Step 3 ``||SmartfeldAktoren:Testname||`` erstellen
 
 ## Schritt 2
 
 Ziel ist es ...
 
-* Etwas anderes
+* Step 1 ``||logic:Wenn...Dann||`` erstellen
 * Step 2 ``||variables:Variablenname||`` erstellen
 
 ## Schritt 3
@@ -23,6 +25,11 @@ Ziel ist es ...
 Ziel ist es ...
 
 * Abschliessend... 
-* Step 2 ``||variables:Variablenname||`` test
+* Step 2 ``||oled:Variablenname||`` erstellen
 
+## Schritt 4
 
+Ziel ist es ...
+
+* Abschliessend... 
+* Step 2 ``||loops:Schleifen||`` erstellen
