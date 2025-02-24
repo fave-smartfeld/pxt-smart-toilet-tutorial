@@ -32,6 +32,10 @@ Ziel ist es ...
 * Abschliessend... 
 * Step 2 ``||loops:Schleifen||`` erstellen
 
+```blocks
+let seifenstandInProzent = 100
+```
+
 ## Schritt 5
 
 ![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/pxt-smart-toilet-tutorial/IoTCube_white.jpg)
