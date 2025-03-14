@@ -2,42 +2,26 @@
 iot-cube=github:Smartfeld/pxt-iot-cube#v1.1.2
 sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 ```
-# IoT Cube Smart Toilets Tutorial
+# Smart Toilett Tutorial für den IoT Cube
 
-## Schritt 1
+## Wichtige Hinweise zu Beginn:
+* Fenster vergrössern: Zieh dieses Browser-Fenster oder das MakeCode-Fenster grösser, damit du alles gut sehen kannst.
+* Scrollen nicht vergessen: Scrolle immer ganz nach unten, um wirklich alle Schritte zu sehen. Sonst verpasst du Teile des Tutorials!
+* Auf Links klicken: Wenn du eine blau unterstrichene Stelle (Link) siehst, musst du darauf klicken. Dort geht das Tutorial weiter oder es öffnet sich ein zusätzlicher Inhalt.
 
-Ziel ist es ...
+## Einführung 
+Vorraussetzungen: 🌱 IoT Basics abgeschlossen  
+Schwierigkeitsgrad: 🔥🔥⚪⚪
 
-* Das Tutorialtool beherrschen
-* Step 1 ``||SmartfeldSensoren:Testname||`` erstellen
-* Step 2 ``||IoTCube:Variablenname||`` erstellen
-* Step 3 ``||SmartfeldAktoren:Testname||`` erstellen
+In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das den Seifenstand simuliert und die Daten über 🛜 LoRa ins Internet sendet.
 
-## Schritt 2
+Das Tutorial ist in zwei Teile aufgeteilt.
 
-Ziel ist es ...
+* [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:reifab/pxt-iot-tutorial/docs/tutorials/seifenspender-part-1)  
+* [Teil 2 - mit Internetverbindung](https://makecode.microbit.org/#tutorial:github:reifab/pxt-iot-tutorial/docs/tutorials/seifenspender-part-2)
 
-* Step 1 ``||logic:Wenn...Dann||`` erstellen
-* Step 2 ``||variables:Variablenname||`` erstellen
+Tipp: Scrolle in jedem Tutorial-Schritt ganz nach unten und klicke erst dann auf den Weiter-Button, damit du nichts übersiehst!
 
-## Schritt 3
+![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
 
-Ziel ist es ...
-
-* Abschliessend... 
-* Step 2 ``||oled:Variablenname||`` erstellen
-
-## Schritt 4
-
-* Abschliessend... 
-* Step 2 ``||loops:Schleifen||`` erstellen
-
-```blocks
-let seifenstandInProzent = 100;
-// @highlight
-let test = 'a';
-```
-
-## Schritt 5
-
-![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/docs/tutorials/IoTCube_white.jpg)
+![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/docs/tutorials/iot-cube-anschliessen-klein.png)
