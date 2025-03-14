@@ -40,4 +40,4 @@ let test = 'a';
 
 ## Schritt 5
 
-![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/pxt-smart-toilet-tutorial/IoTCube_white.jpg)
+![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/docs/tutorials/IoTCube_white.jpg)
