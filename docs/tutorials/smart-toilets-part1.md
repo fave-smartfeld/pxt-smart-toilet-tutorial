@@ -1,5 +1,0 @@
-# Headline
-
-## First Step
-
-Text
