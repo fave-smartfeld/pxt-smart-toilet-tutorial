@@ -24,4 +24,4 @@ Tipp: Scrolle in jedem Tutorial-Schritt ganz nach unten und klicke erst dann auf
 
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
 
-![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/docs/tutorials/iot-cube-anschliessen-klein.png)
+![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
