@@ -17,8 +17,8 @@ In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das den Seife
 
 Das Tutorial ist in zwei Teile aufgeteilt.
 
-* [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part-1)  
-* [Teil 2 - mit Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part-2)
+* [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1)  
+* [Teil 2 - mit Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
 
 Tipp: Scrolle in jedem Tutorial-Schritt ganz nach unten und klicke erst dann auf den Weiter-Button, damit du nichts übersiehst!
 
