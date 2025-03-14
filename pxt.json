@@ -11,7 +11,9 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "docs/tutorials/smart-toilets.md"
+        "docs/tutorials/smart-toilets.md",
+        "docs/tutorials/smart-toilet-part1.md",
+        "docs/tutorials/smart-toilet-part2.md"
     ],
     "testFiles": [
         "test.ts"
