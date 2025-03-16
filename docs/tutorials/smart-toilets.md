@@ -13,7 +13,7 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 Vorraussetzungen: 🌱 IoT Basics abgeschlossen  
 Schwierigkeitsgrad: 🔥🔥⚪⚪
 
-In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das den Seifenstand simuliert und die Daten über 🛜 LoRa ins Internet sendet.
+In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das eine Toilette simuliert und die Daten über 🛜 LoRa ins Internet sendet.
 
 Das Tutorial ist in zwei Teile aufgeteilt.
 
@@ -22,6 +22,4 @@ Das Tutorial ist in zwei Teile aufgeteilt.
 
 Tipp: Scrolle in jedem Tutorial-Schritt ganz nach unten und klicke erst dann auf den Weiter-Button, damit du nichts übersiehst!
 
-![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
-
-![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
+![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/tutorials/iot-cube-anschliessen.png)
