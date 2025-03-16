@@ -17,9 +17,7 @@ Bitte überprüfe, ob du die Kabel am IoT Cube korrekt angeschlossen hast und da
 Vorraussetzungen: 🌱 IoT Basics abgeschlossen  
 Schwierigkeitsgrad: 🔥⚪⚪⚪
 
-In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das eine Toilette simuliert und die Daten über 🛜 LoRa ins Internet sendet.
-
-Das Tutorial ist in zwei Teile aufgeteilt.
+In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das eine Toilette simuliert und die Daten über 🛜 LoRa ins Internet sendet. Das Tutorial ist in zwei Teile aufgeteilt.
 
 * [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1)  
 * [Teil 2 - mit Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
