@@ -2,6 +2,8 @@
 iot-cube=github:Smartfeld/pxt-iot-cube#v1.1.2
 sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 ```
+### @explicitHints false
+
 # Smart Toilet Tutorial für den IoT Cube
 
 ## Wichtige Hinweise zu Beginn:
@@ -12,6 +14,17 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 ![Bild](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/static/tutorials/iot-cube-anschliessen.png)
 Bitte überprüfe, ob du die Kabel am IoT Cube korrekt angeschlossen hast und das USB-Kabel mit dem Computer verbunden ist.
+
+## 👁️ Vorraussetzungen @showdialog
+* Für Teil 1 brauchst Du grundsätzlich nur einen Micro:Bit. 
+* Falls du lieber gleich den IoT- Cube nehmen möchtest, kannst du ihn so anschliessen. Achte auf
+die rote Markierung:
+![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
+* Stelle die Schalter vorerst so ein:
+    * Battery Switch: **off**
+    * LoRa Module: **on**
+![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-power-switches-klein.png)
+* Überprüfe, ob der micro:bit verbunden ist.
 
 ## Einführung 
 Vorraussetzungen: 🌱 IoT Basics abgeschlossen  
