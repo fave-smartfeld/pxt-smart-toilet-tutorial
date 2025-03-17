@@ -1,5 +1,5 @@
 
-> Diese Seite bei [https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/](https://fave-smartfeld.github.io/pxt-smart-toilet-tutorial/) öffnen
+> Diese Seite bei [https://makecode.microbit.org/#tutorial:https://github.com/fave-smartfeld/pxt-smart-toilet-tutorial/](https://makecode.microbit.org/#tutorial:https://github.com/fave-smartfeld/pxt-smart-toilet-tutorial/) öffnen
 
 ## Als Tutorial öffnen
 
