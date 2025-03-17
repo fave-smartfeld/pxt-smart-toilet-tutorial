@@ -20,7 +20,7 @@ Schwierigkeitsgrad: 🔥⚪⚪⚪
 
 ## Lernergebnis
 
-In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das einen Seifenstand simuliert und über 🛜 LoRa ins Internet sendet. Am Ende hast du ein funktionsfähiges Programm, das...
+In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das den Status einer Toilette simuliert. Am Ende hast du ein funktionsfähiges Programm, das...
 
 * den Status "Frei" / "Besetzt" einer Toilette 🚽 anzeigt.
 * per ``||input:Knopfdruck||`` den Status anpasst:

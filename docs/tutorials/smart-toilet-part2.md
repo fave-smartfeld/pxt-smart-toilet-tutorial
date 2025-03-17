@@ -28,7 +28,7 @@ Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedien
 ## Lernergebnis
 
 Aus dem Tutorial Teil 1 hast du bereits ein Programm, das den Status der Toilette "Besetzt" | "Frei" simuliert. 
-Nun wollen wir über LoRa🛜 den Status ins Internet senden. Am Ende hast du ein funktionsfähiges Programm, das:
+Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Status ins Internet senden. Am Ende hast du ein funktionsfähiges Programm, das...
 
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Den Status der Toilette 🚽 über LoRa🛜 sendet. 
@@ -68,7 +68,7 @@ macheFrei()
 
 
 ## 🛜 Verbindung mit Internet aufbauen
-Nun bauen wir eine Verbindung zum Internet auf.
+Am Beginne bauen wir eine Verbindung zum Internet auf.
 Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
 
 * Ziehe den Block 🛜``||IoTCube:LoRa Netzwerk-Verbindung||`` in 
@@ -104,7 +104,7 @@ macheFrei()
 ```
 
 
-## 🛜 Status Verbunden anzeigen
+## 🛜 Status Verbunden ✔ anzeigen
 Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können ersetzen das Verbindungssymbol kurz durch ein bestätigendes Symbol ✔.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
@@ -140,7 +140,7 @@ macheFrei()
 ## Status "Frei" beim Start senden - notwendige Variablen
 
 Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. Problematisch dabei ist, dass
-nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSende** ⏲️ nutzen.
+nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen.
 
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
 * Die Millisekunden seit dem letzten Senden entsprechend den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
