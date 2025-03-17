@@ -139,8 +139,10 @@ macheFrei()
 
 ## Status "Frei" beim Start senden - notwendige Variablen
 
-Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. Problematisch dabei ist, dass
-nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen.
+Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. 
+Das funktioniert auch, aber es ist zu beachten, dass nur alle 5 Sekunden eine Information an die Claviscloud 
+geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten 
+Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nutzen wir folgenden Variablen:
 
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
 * Die Millisekunden seit dem letzten Senden entsprechend den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
