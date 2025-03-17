@@ -154,12 +154,8 @@ Um den Status der Toilette auf "Frei" zu setzen, nutzen wir ``||input:Knopf A is
 * Hole dir den  ``||input:Knopf A ist geklickt||`` Block. 
 * Ändere "A" auf "B", damit du auf den Knopf "B" reagieren kannst: ``||input:Knopf B ist geklickt||``
 * Hol dir den Block ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **Wenn Kopf B geklickt**.
-* 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige, wenn du Knopf A 🚽 und dann B ⬆️ gedrückt hast:  
-⬛⬛🟥⬛⬛     ⬛⬛⬛⬛🟥     ⬛⬛🟥⬛⬛ 
-⬛🟥🟥🟥⬛     ⬛⬛⬛⬛🟥     ⬛🟥🟥🟥⬛
-🟥⬛🟥⬛🟥     ⬛⬛⬛⬛🟥     🟥⬛🟥⬛🟥 
-⬛⬛🟥⬛⬛     🟥🟥🟥🟥🟥     ⬛⬛🟥⬛⬛  
-⬛⬛🟥⬛⬛     ⬛🟥🟥🟥⬛     ⬛⬛🟥⬛⬛  
+* 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige, nach dem Einschalten ⬆️, wenn du Knopf A 🚽 und dann B ⬆️ gedrückt hast. 
+
 Werden dir die korrekten Symbole für den Status der Toilette angezeigt?
 
 ```blocks
@@ -185,12 +181,8 @@ Im nächsten Teil Status der Toilett an die Claviscloud senden
 
 * [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
 * Bitte überprüfe zuvor, ob dein Programm funktioniert!
-* 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige, wenn du Knopf A und dann B gedrückt hast:  
-⬛⬛🟥⬛⬛     ⬛⬛⬛⬛🟥     ⬛⬛🟥⬛⬛ 
-⬛🟥🟥🟥⬛     ⬛⬛⬛⬛🟥     ⬛🟥🟥🟥⬛
-🟥⬛🟥⬛🟥     ⬛⬛⬛⬛🟥     🟥⬛🟥⬛🟥 
-⬛⬛🟥⬛⬛     🟥🟥🟥🟥🟥     ⬛⬛🟥⬛⬛  
-⬛⬛🟥⬛⬛     ⬛🟥🟥🟥⬛     ⬛⬛🟥⬛⬛  
+* 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige.  
+
 Werden dir die korrekten Symbole für den Status der Toilette angezeigt?
 
 Klicke auf das 💡- Symbol, um das vollständige Programm anzuzeigen.
