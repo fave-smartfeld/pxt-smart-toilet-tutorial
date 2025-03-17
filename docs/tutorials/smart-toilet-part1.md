@@ -65,7 +65,7 @@ basic.showLeds(`
 
 ## Funktion für das Setzen des Status "Frei" ⬆️ der Toilette
 Da wir später (Knopf B) auch den Status der Toilette setzen, nutzen wir eine Funktion für diese Aufgabe.
-* Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion "macheFrei".
+* Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion **macheFrei**.
 * Nimm die beiden zuvor angelegten Schritte  aus dem "beim Start" und ziehe diese in die Funktion. 
 * Hol dir den Block ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **beim Start**.
 * 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige:  
@@ -121,7 +121,7 @@ let statusFreiOderBesetzt = 0
 
 ## Funktion für das Setzen des Status "Besetzt" 🚽 der Toilette
 Ähnlich zur Funktion **macheFrei** erstelle eine Funktion für **macheBesetzt** und nutze diese.
-* Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion "mache besetzt".
+* Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion **macheBesetzt**.
 * Nimm die beiden zuvor angelegten Schritte aus dem "Wenn Knopf A geklickt" und ziehe diese in die Funktion.
 * Hol dir den Block ``||functions:Aufruf macheBesetzt |`` und ziehe diesen in den Block **Wenn Kopf A geklickt**.
 * 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige, wenn du Knopf B gedrückt hast:  
