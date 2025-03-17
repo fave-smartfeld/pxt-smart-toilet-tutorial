@@ -21,7 +21,7 @@ Schwierigkeitsgrad: 🔥🔥⚪⚪
     * LoRa Module: **on**
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-power-switches-klein.png)
 
-* Ein LoRa- Gateway🛜 muss in Reichweite sein, welches mit TTN (The Things Network) verbunden ist.
+* Ein LoRa-Gateway🛜 muss in Reichweite sein, welches mit TTN (The Things Network) verbunden ist.
 Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedienen.
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/gateway-klein.png)
 
@@ -108,7 +108,7 @@ macheFrei()
 Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können ersetzen das Verbindungssymbol kurz durch ein bestätigendes Symbol ✔.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
-* Warte im Anschluss 5 Sekunden (5000 ms). Nutze ``||basic:pausiere (ms)||``.
+* Warte im Anschluss 5 Sekunden (5000 ms) ⏳. Nutze ``||basic:pausiere (ms)||``.
 * Drücke 📥`|Download|` und kontrolliere die Anzeige auf der LED-Matrix.
 
 Wird dir zuvor 🔱 und im Anschluss das Symbol ✔ angezeigt?
@@ -140,7 +140,7 @@ macheFrei()
 ## Status "Frei" beim Start senden - notwendige Variablen
 
 Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. Problematisch dabei ist, dass
-nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSende** nutzen.
+nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSende** ⏲️ nutzen.
 
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
 * Die Millisekunden seit dem letzten Senden entsprechend den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
@@ -160,12 +160,11 @@ Am Beginn legen wir eine Funktion **sendeDaten** an, welche den zu sendenden Sta
 * Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion "sendeDaten". Zudem **Füge einen Parameter** mit dem Datentyp für eine **Zahl** mit dem Namen **status** hinzu. 
 * Hol dir den Block ``||logic:Wenn dann ansonsten |`` und ziehe diesen in den Block der Funktion **sendeDaten**.
 * Als Bedingung im Wenn-Block nutze einen Vergleich: Nutze in der Wenn-Bedingung einen Vergleich ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
-* Um zu prüfen, ob 5 Sekunden bereits abgelaufen sind, muss die aktuelle Zeit mit den **msBeiLetztemSenden** verglichen werden. Deshalb ziehe die aktuellen Millisekunden  ``||control:Millisekunden||`` 🕒 in den linken Bereich des Vergleichs.
-* Im rechten Bereich des Vergleichs ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleichs der Wenn-Bedingung.
+* Um zu prüfen, ob 5 Sekunden bereits abgelaufen sind, muss die aktuelle Zeit mit den **msBeiLetztemSenden** verglichen werden. Deshalb ziehe die aktuellen Millisekunden  ``||control:Millisekunden||`` 🕒 in den linken Bereich des Vergleiches.
+* Im rechten Bereich des Vergleiches ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleiches der Wenn-Bedingung.
 * Nutze die ``||variables:msBeiLetztemSenden |`` und addiere 5000 Millisekunden.
 
 Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umgesetzt hast.
-
 
 ```blocks
 function sendeDaten (status: number) {
@@ -175,6 +174,7 @@ function sendeDaten (status: number) {
     }
 }
 ```
+
 
 ## Funktion zum Senden der Daten erstellen - Teil 2
 
@@ -211,7 +211,6 @@ Jetzt legen wir fest, was passiert, wenn wir nicht unmittelbar senden können:
 
 Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umgesetzt hast.
 
-
 ```blocks
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
@@ -230,8 +229,8 @@ function sendeDaten (status: number) {
 
 Nachdem du die Funktion **sendeDaten** korrekt erstellt hast, nutzen wir diese zum Senden des aktuellen Status:
 
-* Ergänze in der Funktion **macheFrei** vor der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
-* Ergänze in der Funktion **macheBesetzt** vor der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
+* Ergänze in der Funktion **macheFrei** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
+* Ergänze in der Funktion **macheBesetzt** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
 * Drücke 📥`|Download|` und drücke Knopf A, um zu simulieren, dass die Toilette besetzt ist.
 
 Wird der Ton abgespielt? Wenn ja, dann werden die Daten an die Claviscloud gesendet? 
@@ -307,4 +306,83 @@ function sendeDaten (status: number) {
         spaeterSenden = true
     }
 }
+```
+
+
+## Gratuliere 🏆 - du hast das Tutorial erfolgreich bearbeitet 🚀
+
+* Verbinde deine Smart Toilet mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
+* Teste, ob die Daten korrekt angezeigt werden!
+
+Behebe gegebenenfalls aufgetretene Fehler. Klicke auf das 💡- Symbol, um den gesamten Code der "Smart Toilet" anzuzeigen.
+
+```blocks
+function macheFrei () {
+    statusFreiOderBesetzt = 1
+    sendeDaten(statusFreiOderBesetzt)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+function macheBesetzt () {
+    statusFreiOderBesetzt = 0
+    sendeDaten(statusFreiOderBesetzt)
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        . # # # .
+        `)
+}
+input.onButtonPressed(Button.A, function () {
+    macheBesetzt()
+})
+function sendeDaten (status: number) {
+    if (control.millis() > msBeiLetztemSenden + 5000) {
+        IoTCube.addBinary(eIDs.ID_0, status)
+        IoTCube.SendBufferSimple()
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+        spaeterSenden = false
+        msBeiLetztemSenden = control.millis()
+    } else {
+        spaeterSenden = true
+    }
+}
+input.onButtonPressed(Button.B, function () {
+    macheFrei()
+})
+let statusFreiOderBesetzt = 0
+let spaeterSenden = false
+let msBeiLetztemSenden = 0
+IoTCube.LoRa_Join(
+eBool.enable,
+eBool.enable,
+10,
+8
+)
+while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
+    basic.showLeds(`
+        # . # . #
+        # . # . #
+        # # # # #
+        . . # . .
+        . . # . .
+        `)
+    basic.pause(1000)
+}
+basic.showIcon(IconNames.Yes)
+basic.pause(5000)
+msBeiLetztemSenden = control.millis()
+spaeterSenden = false
+macheFrei()
+loops.everyInterval(500, function () {
+    if (spaeterSenden) {
+        sendeDaten(statusFreiOderBesetzt)
+    }
+})
 ```
