@@ -161,7 +161,7 @@ Am Beginn legen wir eine Funktion **sendeDaten** an, welche den zu sendenden Sta
 
 * Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion "sendeDaten". Zudem **Füge einen Parameter** mit dem Datentyp für eine **Zahl** mit dem Namen **status** hinzu. 
 * Hol dir den Block ``||logic:Wenn dann ansonsten |`` und ziehe diesen in den Block der Funktion **sendeDaten**.
-* Als Bedingung im Wenn-Block nutze einen Vergleich: Nutze in der Wenn-Bedingung einen Vergleich ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
+* Nutze in der Wenn-Bedingung einen Vergleich ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
 * Um zu prüfen, ob 5 Sekunden bereits abgelaufen sind, muss die aktuelle Zeit mit den **msBeiLetztemSenden** verglichen werden. Deshalb ziehe die aktuellen Millisekunden  ``||control:Millisekunden||`` 🕒 in den linken Bereich des Vergleiches.
 * Im rechten Bereich des Vergleiches ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleiches der Wenn-Bedingung.
 * Nutze die ``||variables:msBeiLetztemSenden |`` und addiere 5000 Millisekunden.
@@ -281,8 +281,8 @@ function sendeDaten (status: number) {
 
 Wir müssen noch den Fehler / Fall bearbeiten, wenn Daten nicht unmittelbar gesendet werden konnten. Dazu: 
 
-* Hol dir den Block ``||loops: Alle 500ms ||`` und ziehe in einen freien Bereich.
-* Hol dir den Block ``||logic:Wenn dann ||`` und ziehe diesen in den Block der soeben erstellten Schleife, welche alle 500 Millisekunden ausgeführt wird.
+* Hol dir den Block ``||loops: alle 500ms ||`` und ziehe in einen freien Bereich.
+* Hol dir den Block ``||logic: wenn dann ||`` und ziehe diesen in den Block der soeben erstellten Schleife, welche alle 500 Millisekunden ausgeführt wird.
 * Die Bedingung im Wenn-Block prüft, ob die Variable ``||variables: spaeterSenden ||`` wahr ist. 
 * In diesem Fall muss die Funktion ``||functions: sendeDaten(statusFreiOderBesetzt) ||`` aufgerufen werden.
 * Drücke 📥`|Download|` und drücke kurz nachdem das Symbol ✔ angezeigt wird den  Knopf A, um zu simulieren, dass die Toilette besetzt ist.
