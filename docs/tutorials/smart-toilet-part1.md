@@ -177,15 +177,14 @@ macheFrei()
 ```
 
 ## Weiter gehts mit Teil 2!
-Im nächsten Teil Status der Toilett an die Claviscloud senden 
+Im nächsten Teil werden wir den Status der Toilette an die Claviscloud senden.
 
 * [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
 * Bitte überprüfe zuvor, ob dein Programm funktioniert!
-* 📥 Drücke `|Download|` und kontrolliere die LED- Anzeige.  
 
 Werden dir die korrekten Symbole für den Status der Toilette angezeigt?
+Klicke auf das 💡- Symbol, um das vollständige Programm anzuzeigen und Fehler zu beheben.
 
-Klicke auf das 💡- Symbol, um das vollständige Programm anzuzeigen.
 
 ```blocks
 function macheFrei () {
