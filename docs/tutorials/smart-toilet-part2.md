@@ -108,7 +108,7 @@ macheFrei()
 Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können ersetzen das Verbindungssymbol kurz durch ein bestätigendes Symbol ✔.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
-* Warte im Anschluss 1 Sekunde (1000 ms). Nutze ``||basic:pausiere (ms)||``.
+* Warte im Anschluss 5 Sekunden (5000 ms). Nutze ``||basic:pausiere (ms)||``.
 * Drücke 📥`|Download|` und kontrolliere die Anzeige auf der LED-Matrix.
 
 Wird dir zuvor 🔱 und im Anschluss das Symbol ✔ angezeigt?
@@ -133,25 +133,22 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
     basic.pause(1000)
 }
 basic.showIcon(IconNames.Yes)
-basic.pause(1000)
+basic.pause(5000)
 macheFrei()
 ```
 
-## Status "Frei" beim Start senden - notendige Variablen
+## Status "Frei" beim Start senden - notwendige Variablen
 
 Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. Problematisch dabei ist, dass
-nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir noch etwas abwarten bzw. den Zeitpunkt des letzten Sendevorganges uns merken und den Status **sendeErlaubnis** entsprechend anpassen.
+nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten und uns den Zeitpunkt des letzten Sendevorganges merken und einen Status **spaeterSende** nutzen.
 
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
 * Die Millisekunden seit dem letzten Senden entsprechend den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
-* Auch für den Status, ob wir Daten senden dürfen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **sendeErlaubnis**.
-* Da wir uns soeben erst verbunden haben, müssen wir gleichfalls die 5 Sekunden abwarten bzw. die die **SendeErlaubnis** auf falsch setzen: ``||variables:setze sendeErlaubnis ||`` auf ``||logic:false ||``.
-* Auch für den Status, ob wir die Daten später senden sollen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **spaeterSenden**.
-* Setze **SendeErlaubnis** gleichfalls auf falsch: ``||variables:setze spaeterSenden ||`` auf ``||logic:false ||``.
+* Gleichfalls benötigen wir für den Status, ob wir die Daten später senden müssen, eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **spaeterSenden**.
+* Da wir uns soeben erst verbunden haben und die 5 Sekunden abgewartet haben, können wir die Variable **spaeterSenden** auf falsch setzen: ``||variables:setze sendeErlaubnis ||`` auf ``||logic:false ||``.
 
 ```blocks
 let msBeiLetztemSenden = control.millis()
-let sendeErlaubnis = false
 let spaeterSenden = false
 macheFrei()
 ```
@@ -173,9 +170,8 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 ```blocks
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
-    	
+
     } else {
-    	
     }
 }
 ```
@@ -184,7 +180,7 @@ function sendeDaten (status: number) {
 
 Jetzt legen wir fest, was passiert, wenn wir senden dürfen:
 
-* Hol dir den Block ``||IoTCube: Wahrheitswert mit der ID_0 ||`` und setze den Wert auf den **status** (= übergebener Parameter der Funktion). Dazu musst du den Paramter **status** anklicken und in den dafür vorgesehenen Bereich ziehen.
+* Hol dir den Block ``||IoTCube: Wahrheitswert mit der ID_0 ||`` und setze den Wert auf den **status** (= übergebener Parameter der Funktion). Dazu musst du den Parameter **status** anklicken und in den dafür vorgesehenen Bereich ziehen.
 * Im Anschluss kannst du die Daten mit ``||IoTCube: Sende Daten ||``.
 * Damit du erkennst, dass gesendet wurde, spiele ein ``||music: Mittleres C ||`` für einen Schlag bis zum Ende.
 * Setze im Anschluss **spaeterSenden** auf falsch: ``||variables:setze spaeterSenden ||`` auf ``||logic:false ||``.
@@ -199,17 +195,17 @@ function sendeDaten (status: number) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-        sendeErlaubnis = false
+        spaeterSenden = false
         msBeiLetztemSenden = control.millis()
     } else {
-    	
+
     }
 }
 ```
 
 ## Funktion zum Senden der Daten erstellen - Teil 3
 
-Jetzt legen wir fest, was passiert, wenn wir nicht senden dürfen:
+Jetzt legen wir fest, was passiert, wenn wir nicht unmittelbar senden können:
 
 * Setze  **spaeterSenden** auf wahr: ``||variables:setze spaeterSenden ||`` auf ``||logic:true ||``.
 
@@ -217,6 +213,89 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 
 
 ```blocks
+function sendeDaten (status: number) {
+    if (control.millis() > msBeiLetztemSenden + 5000) {
+        IoTCube.addBinary(eIDs.ID_0, status)
+        IoTCube.SendBufferSimple()
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+        spaeterSenden = false
+        msBeiLetztemSenden = control.millis()
+    } else {
+        spaeterSenden = true
+    }
+}
+```
+
+## Funktion zum Senden der Daten nutzen
+
+Nachdem du die Funktion **sendeDaten** korrekt erstellt hast, nutzen wir diese zum Senden des aktuellen Status:
+
+* Ergänze in der Funktion **macheFrei** vor der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
+* Ergänze in der Funktion **macheBesetzt** vor der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
+* Drücke 📥`|Download|` und drücke Knopf A, um zu simulieren, dass die Toilette besetzt ist.
+
+Wird der Ton abgespielt? Wenn ja, dann werden die Daten an die Claviscloud gesendet? 
+Überprüfe dies indem du prüfst, ob dein IoT Cube unter den Geräten aktiv ist!
+
+Wenn nein, dann hast du nicht lange genug (5 Sekunden) gewartet. Diesen Fall lösen wir im nächsten Schritt. 
+
+```blocks
+function macheFrei () {
+    statusFreiOderBesetzt = 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+    sendeDaten(statusFreiOderBesetzt)
+}
+function macheBesetzt () {
+    statusFreiOderBesetzt = 0
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        . # # # .
+        `)
+    sendeDaten(statusFreiOderBesetzt)
+}
+function sendeDaten (status: number) {
+    if (control.millis() > msBeiLetztemSenden + 5000) {
+        IoTCube.addBinary(eIDs.ID_0, status)
+        IoTCube.SendBufferSimple()
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+        spaeterSenden = false
+        msBeiLetztemSenden = control.millis()
+    } else {
+        spaeterSenden = true
+    }
+}
+```
+
+
+## Dauerhaft prüfen, ob Daten zum Senden bereit liegen
+
+Wir müssen noch den Fehler / Fall bearbeiten, wenn Daten nicht unmittelbar gesendet werden konnten. Dazu: 
+
+* Hol dir den Block ``||loops: Alle 500ms ||`` und ziehe in einen freien Bereich.
+* Hol dir den Block ``||logic:Wenn dann ||`` und ziehe diesen in den Block der soeben erstellten Schleife, welche alle 500 Millisekunden ausgeführt wird.
+* Die Bedingung im Wenn-Block prüft, ob die Variable ``||variables: spaeterSenden ||`` wahr ist. 
+* In diesem Fall muss die Funktion ``||functions: sendeDaten(statusFreiOderBesetzt) ||`` aufgerufen werden.
+* Drücke 📥`|Download|` und drücke kurz nachdem das Symbol ✔ angezeigt wird den  Knopf A, um zu simulieren, dass die Toilette besetzt ist.
+
+Wenn sich das Symbol gleich ändert, aber der Ton erst später abgespielt wird, dann hat alles funktioniert.
+
+Wenn nicht, dann vergleiche deinen Code mit dem Code der Lösung, welche du [hier](https://makecode.microbit.org/_40wczFToxVE9) findest.
+
+```blocks
+loops.everyInterval(500, function () {
+    if (spaeterSenden) {
+        sendeDaten(statusFreiOderBesetzt)
+    }
+})
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
         IoTCube.addBinary(eIDs.ID_0, status)
