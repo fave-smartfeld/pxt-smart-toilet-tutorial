@@ -1,6 +1,6 @@
 {
     "name": "pxt-smart-toilet-tutorial",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "",
     "dependencies": {
         "core": "*",
