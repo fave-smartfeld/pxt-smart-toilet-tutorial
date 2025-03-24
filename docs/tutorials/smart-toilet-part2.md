@@ -388,3 +388,34 @@ loops.everyInterval(500, function () {
     }
 })
 ```
+
+```template
+function macheFrei () {
+    statusFreiOderBesetzt += 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+function macheBesetzt () {
+    statusFreiOderBesetzt = 0
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        . # # # .
+        `)
+}
+input.onButtonPressed(Button.A, function () {
+    macheBesetzt()
+})
+input.onButtonPressed(Button.B, function () {
+    macheFrei()
+})
+let statusFreiOderBesetzt = 0
+macheFrei()
+```
