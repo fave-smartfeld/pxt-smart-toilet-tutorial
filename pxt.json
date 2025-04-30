@@ -13,13 +13,16 @@
         "README.md",
         "docs/tutorials/smart-toilets.md",
         "docs/tutorials/smart-toilet-part1.md",
-        "docs/tutorials/smart-toilet-part2.md"
+        "docs/tutorials/smart-toilet-part2.md",
+        "docs/tutorials/warteschlange.md",
+        "docs/tutorials/warteschlange-part1.md",
+        "docs/tutorials/warteschlange-part2.md"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "7.0.57",
+        "target": "7.0.61",
         "targetId": "microbit"
     },
     "supportedTargets": [

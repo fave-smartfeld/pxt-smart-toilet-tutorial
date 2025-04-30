@@ -33,38 +33,7 @@ Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Sta
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Den Status der Toilette 🚽 über LoRa🛜 sendet. 
 
-Klicke auf das 💡- Symbol, um das vollständige Programm von Teil 1 anzuzeigen.
-
-```blocks
-function macheFrei () {
-    statusFreiOderBesetzt += 1
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-}
-function macheBesetzt () {
-    statusFreiOderBesetzt = 0
-    basic.showLeds(`
-        . . . . #
-        . . . . #
-        . . . . #
-        # # # # #
-        . # # # .
-        `)
-}
-input.onButtonPressed(Button.A, function () {
-    macheBesetzt()
-})
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
-let statusFreiOderBesetzt = 0
-macheFrei()
-```
+Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 Tutorial des Tutorials zu bearbeiten.
 
 
 ## 🛜 Verbindung mit Internet aufbauen
