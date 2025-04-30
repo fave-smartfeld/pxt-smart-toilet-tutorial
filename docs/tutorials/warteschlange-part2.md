@@ -33,7 +33,7 @@ Nun wollen wir die Anzahl an Personen in der Warteschlange über LoRa🛜 ins In
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Die Anzahl an Personen in der Warteschlange 👥 über LoRa🛜 sendet. 
 
-Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 Tutorial des Tutorials zu bearbeiten.
+Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 des Tutorial zu bearbeiten.
 
 
 

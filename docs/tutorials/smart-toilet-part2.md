@@ -33,7 +33,7 @@ Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Sta
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Den Status der Toilette 🚽 über LoRa🛜 sendet. 
 
-Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 Tutorial des Tutorials zu bearbeiten.
+Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 des Tutorials zu bearbeiten.
 
 
 ## 🛜 Verbindung mit Internet aufbauen
