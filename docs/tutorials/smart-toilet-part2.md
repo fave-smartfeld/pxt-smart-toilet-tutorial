@@ -37,7 +37,7 @@ Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas un
 
 
 ## 🛜 Verbindung mit Internet aufbauen
-Am Beginne bauen wir eine Verbindung zum Internet auf.
+Am Beginn bauen wir eine Verbindung zum Internet auf.
 Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
 
 * Ziehe den Block 🛜``||IoTCube:LoRa Netzwerk-Verbindung||`` in 
