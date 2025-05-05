@@ -10,7 +10,7 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 **Vorraussetzungen**
 
-🌱 IoT Basics abgeschlossen und Warteschlangen Tutorial [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part1) abgeschlossen.
+🌱 IoT Basics abgeschlossen und Warteschlangen Tutorial [Teil 1 - ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part1) abgeschlossen.
 
 Schwierigkeitsgrad: 🔥🔥⚪⚪
 
@@ -28,13 +28,13 @@ Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedien
 
 ## Lernergebnis
 
-Aus dem Tutorial Teil 1 hast du bereits ein Programm mit dem die Anzahl an Personen in einer Warteschlange mit den Knöpfen A und B verändert werden kann. 
+Aus dem Tutorial Teil 1 hast du bereits ein Programm erstellt, welches die Anzahl an Personen einer Warteschlange anzeigt. Die Anzahl kann mit Kopf A erhöht und B reduziert werden. 
 Nun wollen wir die Anzahl an Personen in der Warteschlange über LoRa🛜 ins Internet senden. Am Ende hast du ein funktionsfähiges Programm, das...
 
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Die Anzahl an Personen in der Warteschlange 👥 über LoRa🛜 sendet. 
 
-Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 des Tutorial zu bearbeiten.
+Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den [Teil 1 des Tutorials](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part1) zu bearbeiten.
 
 ## 🛜 Verbindung mit Internet aufbauen - Schritt 1
 
@@ -121,10 +121,10 @@ zeigePersonenanzahl()
 
 ## 🛜 Verbindungsbestätigung anzeigen
 
-Abschliessend möchten wir den erfolgreichen Verbindungsaufbaus kurz auf dem OLED anzeigen.
+Jetzt möchten wir den erfolgreichen Verbindungsaufbaus kurz (2 Sekunden) auf dem OLED anzeigen.
 * Ziehe dazu den Block ``||smartfeldAktoren:Display:Lösche Displayinhalt||`` ans Ende der Funktion bzw. nachdem die Schleife beendet ist, um den Inhalt des Displays zu löschen.
 * Im Anschluss ziehe den Block ``||smartfeldAktoren:Display:schreibe String||`` **"Verbunden!"**, um zu zeigen, dass sich der IoT Cube erfolgreich verbunden hat.
-* Um Strom zu sparten, löschen wir nach 2 Sekunden das Display wieder. Nutze dazu den Block ``||basic:pausiere (ms)||`` **2000ms** und ``||smartfeldAktoren:Display:Lösche Displayinhalt||``.
+* Um Strom zu sparen, löschen wir nach 2 Sekunden das Display wieder. Nutze dazu den Block ``||basic:pausiere (ms)||`` **2000ms** und ``||smartfeldAktoren:Display:Lösche Displayinhalt||``.
 * 📥 Drücke `|Download|` und kontrolliere das OLED-Display:  
 Wird dir nach erfolgreichem Verbindungsaufbau 2 Sekunden lang "Verbunden" anzgezeigt? <br />
 Wird im Anschluss die Anzeige wieder gelöscht?
@@ -155,10 +155,15 @@ anzahlPersonenInWarteschlange = 0
 zeigePersonenanzahl()
 ```
 
-## 👥 Senden der Daten in der Funktion "zeigePersonenanzahl" - Teil 1
+## 🛜 Senden der 👥 Personenanzahl in der Funktion "zeigePersonenanzahl"
 
-ToDo.
-* ToDo 
+Nach erfolgreichem Verbindungsaufbau können wir die aktuelle Personenanzahl an die Claviscloud senden. Dazu erweitern wir die Funktion "zeigePersonenanzahl".
+* Benenne die Funktion **zeigePersonenanzahl** auf **sendeUndZeigePersonenanzahl** um. Dazu klickst du in den Namen der Funktion und änderst diesen entsprechend ab.
+* Ziehe den Block ``||IoTCube: Ganzzahl mit ID_0 ||`` an den Beginn der Funktion **sendeUndZeigePersonenanzahl**.
+* Ersetze die 0 mit dem aktuellen Variablenwert von **anzahlPersonenInWarteschlange** indem du den Block ``||variables:anzahlPersonenInWarteschlange ||`` in diesen Bereich ziehst.
+* Im Anschluss kannst du mit ``||IoTCube: Sende Daten ||`` die Daten, welche in der *Ganzzahl mit ID_0* hinterlegt sind, an die Claviscloud senden.
+* Da die Übermittlung Zeit benötigt und *nur* alle 5 Sekunden ein Sendevorgang stattfinden kann, integrieren wir noch eine Fortschrittsanzeige. Klicke auf Weiter... 
+
 
 ```blocks
 function sendeUndZeigePersonenanzahl () {
@@ -172,17 +177,23 @@ anzahlPersonenInWarteschlange = 0
 sendeUndZeigePersonenanzahl()
 ```
 
-## 👥 Senden der Daten in der Funktion "zeigePersonenanzahl" - Teil 1
+## 🛜 Sendevorgang: Fortschrittsanzeige - Teil 1
 
-ToDo.
-* ToDo 
+Über LoRa kann *nur* alle 5 Sekunden ein Sendevorgang stattfinden. Deshalb integrieren wir eine Fortschrittsanzeige:
+* Hol dir den Block ``||functions:Erstelle eine Funktion...||`` und benenne die Funktion "warte5SekundenUndZeigeFortschritt".
+* Rufe diese Funktion am Ende der Funktion **sendeUndZeigePersonenanzahl** auf, d.h. integriere den Block ``||functions: Aufruf warte5SekundenUndZeigeFortschritt ||`` als letzten Schritt in die Funktion **sendeUndZeigePersonenanzahl**.
+* Am Beginn der Funktion **warte5SekundenUndZeigeFortschritt** wollen wir das OLED-Display leeren. Hol dir dazu den Block ``||smartfeldAktoren:Display:Lösche Displayinhalt||`` und ziehe in in die Funktion ``||functions: warte5SekundenUndZeigeFortschritt ||``.
+* Die Fortschrittsanzeige folgt im nächsten Schritt. Klicke auf Weiter...
 
 ```blocks
+function warte5SekundenUndZeigeFortschritt () {
+    smartfeldAktoren.oledClear()
+}
 function sendeUndZeigePersonenanzahl () {
     IoTCube.addUnsignedInteger(eIDs.ID_0, anzahlPersonenInWarteschlange)
     IoTCube.SendBufferSimple()
     basic.showNumber(anzahlPersonenInWarteschlange)
-    warte_5_Sekunden_mit_Anzeige()
+    warte5SekundenUndZeigeFortschritt()
 }
 let anzahlPersonenInWarteschlange = 0
 initialisiereLoRaVerbindung()
@@ -190,11 +201,41 @@ anzahlPersonenInWarteschlange = 0
 sendeUndZeigePersonenanzahl()
 ```
 
+## 🛜 Sendevorgang: Fortschrittsanzeige - Teil 2
 
+Für die Fortschrittsanzeige nutzen wir einen Fortschrittsbalken des OLED-Displays:
+* Hol dir den Block ``||loops:für index von 0 bis 4||`` und nennen die Variable *index* über das Auswahlmenü auf **fortschritt** um. Ändere die *bis 4* auf **bis 100** (Prozentueller Fortschritt) um.
+* In der Schleife ergänze den Block ``||smartfeldAktoren:Display:zeichne Ladebalken bei 0 Prozent ||`` und nutze die Variable ``||variables:fortschritt ||`` anstatt der 0 für den Ladebalken.
+* Zudem müssen wir mit ``||basic:pausiere 50(ms) ||``  Millisekunden warten, damit insgesamt 5 Sekunden (100 x 50 Millisekunden = 5000 Millisekunden = 5 Sekunden) verstreichen.
+* Am Ende löschen wir das OLED-Display wieder. Hol dir dazu den Block ``||smartfeldAktoren:Display:Lösche Displayinhalt||`` und ziehe diesen Bock an das Ende der Funktion ``||functions: warte5SekundenUndZeigeFortschritt ||``.
+* 📥 Drücke `|Download|` und kontrolliere das OLED-Display:  
+Wird die nach Änderung der Personenanzahl die Fortschrittsanzeige angezeigt? <br />
+Wird im Anschluss die Anzeige wieder gelöscht?
+
+```blocks
+function warte5SekundenUndZeigeFortschritt () {
+    smartfeldAktoren.oledClear()
+    for (let fortschritt = 0; fortschritt <= 100; fortschritt++) {
+        smartfeldAktoren.oledLoadingBar(fortschritt)
+        basic.pause(50)
+    }
+    smartfeldAktoren.oledClear()
+}
+function sendeUndZeigePersonenanzahl () {
+    IoTCube.addUnsignedInteger(eIDs.ID_0, anzahlPersonenInWarteschlange)
+    IoTCube.SendBufferSimple()
+    basic.showNumber(anzahlPersonenInWarteschlange)
+    warte5SekundenUndZeigeFortschritt()
+}
+let anzahlPersonenInWarteschlange = 0
+initialisiereLoRaVerbindung()
+anzahlPersonenInWarteschlange = 0
+sendeUndZeigePersonenanzahl()
+```
 
 ## Gratuliere 🏆 - du hast das Tutorial erfolgreich bearbeitet 🚀
 
-* Verbinde deine Warteschlangen mit dem Warteschlangen Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
+* Verbinde deinen IoT Cube mit dem Warteschlangenprogramm mit dem Warteschlangen Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
 * Teste, ob die Daten korrekt angezeigt werden!
 
 Behebe gegebenenfalls aufgetretene Fehler. Klicke auf das 💡- Symbol, um den gesamten Code der "Warteschlange" anzuzeigen.
@@ -223,9 +264,9 @@ function sendeUndZeigePersonenanzahl () {
     IoTCube.addUnsignedInteger(eIDs.ID_0, anzahlPersonenInWarteschlange)
     IoTCube.SendBufferSimple()
     basic.showNumber(anzahlPersonenInWarteschlange)
-    warte_5_Sekunden_mit_Anzeige()
+    warte5SekundenUndZeigeFortschritt()
 }
-function warte_5_Sekunden_mit_Anzeige () {
+function warte5SekundenUndZeigeFortschritt () {
     smartfeldAktoren.oledClear()
     for (let fortschritt = 0; fortschritt <= 100; fortschritt++) {
         smartfeldAktoren.oledLoadingBar(fortschritt)
