@@ -162,7 +162,7 @@ Nach erfolgreichem Verbindungsaufbau können wir die aktuelle Personenanzahl an 
 * Ziehe den Block ``||IoTCube: Ganzzahl mit ID_0 ||`` an den Beginn der Funktion **sendeUndZeigePersonenanzahl**.
 * Ersetze die 0 mit dem aktuellen Variablenwert von **anzahlPersonenInWarteschlange** indem du den Block ``||variables:anzahlPersonenInWarteschlange ||`` in diesen Bereich ziehst.
 * Im Anschluss kannst du mit ``||IoTCube: Sende Daten ||`` die Daten, welche in der *Ganzzahl mit ID_0* hinterlegt sind, an die Claviscloud senden.
-* Da die Übermittlung Zeit benötigt und *nur* alle 5 Sekunden ein Sendevorgang stattfinden kann, integrieren wir noch eine Fortschrittsanzeige. Klicke auf Weiter... 
+* Da die Übermittlung Zeit benötigt und *nur* alle 5 Sekunden ein Sendevorgang stattfinden kann, integrieren wir noch eine Fortschrittsanzeige. 
 
 
 ```blocks
@@ -183,7 +183,7 @@ sendeUndZeigePersonenanzahl()
 * Hol dir den Block ``||functions:Erstelle eine Funktion...||`` und benenne die Funktion "warte5SekundenUndZeigeFortschritt".
 * Rufe diese Funktion am Ende der Funktion **sendeUndZeigePersonenanzahl** auf, d.h. integriere den Block ``||functions: Aufruf warte5SekundenUndZeigeFortschritt ||`` als letzten Schritt in die Funktion **sendeUndZeigePersonenanzahl**.
 * Am Beginn der Funktion **warte5SekundenUndZeigeFortschritt** wollen wir das OLED-Display leeren. Hol dir dazu den Block ``||smartfeldAktoren:Display:Lösche Displayinhalt||`` und ziehe in in die Funktion ``||functions: warte5SekundenUndZeigeFortschritt ||``.
-* Die Fortschrittsanzeige folgt im nächsten Schritt. Klicke auf Weiter...
+* Die Fortschrittsanzeige folgt im nächsten Schritt.
 
 ```blocks
 function warte5SekundenUndZeigeFortschritt () {
