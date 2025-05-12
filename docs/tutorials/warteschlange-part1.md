@@ -122,7 +122,7 @@ basic.forever(function () {
         zeigePersonenanzahl()
     }
     if (input.buttonIsPressed(Button.B)) {
-        anzahlPersonenInWarteschlange -= 1
+        anzahlPersonenInWarteschlange += -1
         zeigePersonenanzahl()
     }
 })
@@ -151,7 +151,7 @@ basic.forever(function () {
         zeigePersonenanzahl()
     }
     if (input.buttonIsPressed(Button.B)) {
-        anzahlPersonenInWarteschlange -= 1
+        anzahlPersonenInWarteschlange += -1
         if (anzahlPersonenInWarteschlange < 0) {
             anzahlPersonenInWarteschlange = 0
         }
@@ -185,7 +185,7 @@ basic.forever(function () {
         zeigePersonenanzahl()
     }
     if (input.buttonIsPressed(Button.B)) {
-        anzahlPersonenInWarteschlange += 0 - 1
+        anzahlPersonenInWarteschlange += -1
         if (anzahlPersonenInWarteschlange < 0) {
             anzahlPersonenInWarteschlange = 0
         }
