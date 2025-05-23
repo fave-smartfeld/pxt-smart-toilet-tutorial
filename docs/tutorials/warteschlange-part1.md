@@ -18,6 +18,17 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 Schwierigkeitsgrad: 🔥⚪⚪⚪
 
+## 👁️ Vorraussetzungen @showdialog
+* Für Teil 1 brauchst Du grundsätzlich nur einen Micro:Bit. 
+* Falls du lieber gleich den IoT- Cube nehmen möchtest, kannst du ihn so anschliessen. Achte auf
+die rote Markierung:
+![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
+* Stelle die Schalter vorerst so ein:
+    * Battery Switch: **off**
+    * LoRa Module: **on**
+![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-power-switches-klein.png)
+* Überprüfe, ob der micro:bit verbunden ist.
+
 ## Lernergebnis
 
 In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das eine Warteschlange simuliert. Am Ende hast du ein funktionsfähiges Programm, das...
