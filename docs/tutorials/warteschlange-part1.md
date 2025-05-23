@@ -171,36 +171,13 @@ basic.forever(function () {
 })
 ```
 
-
-## Super du hast Teil 1 geschafft - weiter geht's mit Teil 2!
+## Gratuliere 🏆 - du hast den Teil 1 erfolgreich bearbeitet 🚀
 
 Im nächsten Teil werden wir die Anzahl an Personen in der Warteschlange an die Claviscloud senden.
 
-* [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part2)
+* Weiter gehts mit Teil 2: [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part2)
 * Bitte überprüfe zuvor, ob dein Programm funktioniert!
-
-Kannst du mit Kopf A die Anzahl an Personen erhöhen?<br />
-Kannst du mit Kopf B die Anzahl an Personen reduzieren?<br />
-Wird die Anzahl an Personen nie negativ auch wenn du häufiger Knopf B als Knopf A drückst?<br />
-Klicke auf das 💡- Symbol, um das vollständige Programm anzuzeigen und Fehler zu beheben.
-
-```blocks
-function zeigePersonenanzahl () {
-    basic.showNumber(anzahlPersonenInWarteschlange)
-}
-let anzahlPersonenInWarteschlange = 0
-zeigePersonenanzahl()
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.A)) {
-        anzahlPersonenInWarteschlange += 1
-        zeigePersonenanzahl()
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        anzahlPersonenInWarteschlange += -1
-        if (anzahlPersonenInWarteschlange < 0) {
-            anzahlPersonenInWarteschlange = 0
-        }
-        zeigePersonenanzahl()
-    }
-})
-```
+  * Kannst du mit Kopf A die Anzahl an Personen erhöhen?<br />
+  * Kannst du mit Kopf B die Anzahl an Personen reduzieren?<br />
+  * Wird die Anzahl an Personen nie negativ auch wenn du häufiger Knopf B als Knopf A drückst?<br />
+* Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum testen: [Lösung Teil 1](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part1-solution)

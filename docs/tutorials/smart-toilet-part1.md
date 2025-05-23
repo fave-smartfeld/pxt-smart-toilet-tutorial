@@ -197,43 +197,9 @@ let statusFreiOderBesetzt = 0
 macheFrei()
 ```
 
-## Weiter geht's mit Teil 2!
+## Gratuliere 🏆 - du hast den Teil 1 erfolgreich bearbeitet 🚀
+
 Im nächsten Teil werden wir den Status der Toilette an die Claviscloud senden.
 
-* [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
-* Bitte überprüfe zuvor, ob dein Programm funktioniert!
-
-Werden dir die korrekten Symbole für den Status der Toilette angezeigt?
-Klicke auf das 💡- Symbol, um das vollständige Programm anzuzeigen und Fehler zu beheben.
-
-
-```blocks
-function macheFrei () {
-    statusFreiOderBesetzt += 1
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-}
-function macheBesetzt () {
-    statusFreiOderBesetzt = 0
-    basic.showLeds(`
-        . . . . #
-        . . . . #
-        . . . . #
-        # # # # #
-        . # # # .
-        `)
-}
-input.onButtonPressed(Button.A, function () {
-    macheBesetzt()
-})
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
-let statusFreiOderBesetzt = 0
-macheFrei()
-```
+* Weiter gehts mit Teil 2: [Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2)
+* Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum testen: [Lösung Teil 1](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1-solution)

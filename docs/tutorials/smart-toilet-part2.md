@@ -245,7 +245,6 @@ function sendeDaten (status: number) {
 }
 ```
 
-
 ## Dauerhaft prüfen, ob Daten zum Senden bereit liegen
 
 Wir müssen noch den Fehler / Fall bearbeiten, wenn Daten nicht unmittelbar gesendet werden konnten. Dazu: 
@@ -279,112 +278,8 @@ function sendeDaten (status: number) {
 }
 ```
 
-
 ## Gratuliere 🏆 - du hast das Tutorial erfolgreich bearbeitet 🚀
 
-* Verbinde deine Smart Toilet mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
+* Verbinde deine Smarte Toilette mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
 * Teste, ob die Daten korrekt angezeigt werden!
-
-Behebe gegebenenfalls aufgetretene Fehler. Klicke auf das 💡- Symbol, um den gesamten Code der "Smart Toilet" anzuzeigen.
-
-```blocks
-function macheFrei () {
-    statusFreiOderBesetzt = 1
-    sendeDaten(statusFreiOderBesetzt)
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-}
-function macheBesetzt () {
-    statusFreiOderBesetzt = 0
-    sendeDaten(statusFreiOderBesetzt)
-    basic.showLeds(`
-        . . . . #
-        . . . . #
-        . . . . #
-        # # # # #
-        . # # # .
-        `)
-}
-input.onButtonPressed(Button.A, function () {
-    macheBesetzt()
-})
-function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
-        IoTCube.addBinary(eIDs.ID_0, status)
-        IoTCube.SendBufferSimple()
-        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-        spaeterSenden = false
-        msBeiLetztemSenden = control.millis()
-    } else {
-        spaeterSenden = true
-    }
-}
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
-let statusFreiOderBesetzt = 0
-let spaeterSenden = false
-let msBeiLetztemSenden = 0
-IoTCube.LoRa_Join(
-eBool.enable,
-eBool.enable,
-10,
-8
-)
-while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
-    basic.showLeds(`
-        # . # . #
-        # . # . #
-        # # # # #
-        . . # . .
-        . . # . .
-        `)
-    basic.pause(1000)
-}
-basic.showIcon(IconNames.Yes)
-basic.pause(5000)
-msBeiLetztemSenden = control.millis()
-spaeterSenden = false
-macheFrei()
-loops.everyInterval(500, function () {
-    if (spaeterSenden) {
-        sendeDaten(statusFreiOderBesetzt)
-    }
-})
-```
-
-```template
-function macheFrei () {
-    statusFreiOderBesetzt += 1
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-}
-function macheBesetzt () {
-    statusFreiOderBesetzt = 0
-    basic.showLeds(`
-        . . . . #
-        . . . . #
-        . . . . #
-        # # # # #
-        . # # # .
-        `)
-}
-input.onButtonPressed(Button.A, function () {
-    macheBesetzt()
-})
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
-let statusFreiOderBesetzt = 0
-macheFrei()
-```
+* Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum testen: [Lösung Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2-solution)
