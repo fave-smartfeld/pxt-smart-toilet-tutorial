@@ -47,10 +47,11 @@ Um die Anzahl der Personen in der Warteschlange zu speichern, nutzen wir eine Va
 * Am Beginn nehmen wir an, dass keine Personen in der Warteschlange sind. Setze deshalb ``||basic:beim Start||``, die zuvor angelegte Variable ``||variables:setze anzahlPersonenInWarteschlange auf 0||``.
 
 ```blocks
+// @highlight
 let anzahlPersonenInWarteschlange = 0
 ```
 
-## 👥 Anzeige der Anzahl der Personen auf der LED Matrix
+## 👥 Anzeige der Anzahl der Personen auf der LED-Matrix
 
 Um die aktuelle Anzahl der Personen in der Warteschlange anzuzeigen, nutzen wir die LED Matrix.
 * Hol dir den Block ``||basic:Zeige Zahl|`` und ziehe diesen in den Block **beim Start** direkt unter den Block ``||variables:setze anzahlPersonenInWarteschlange auf 0||`` 👥.
@@ -61,12 +62,13 @@ Wird die Zahl 0 dargestellt?
 ```blocks
 let anzahlPersonenInWarteschlange = 0
 anzahlPersonenInWarteschlange = 0
+// @highlight
 basic.showNumber(anzahlPersonenInWarteschlange)
 ```
 
-## Funktion für das Anzeigen der Anzahl der Personen auf der LED Matrix
+## Funktion für das Anzeigen der Anzahl der Personen auf der LED-Matrix
 
-Da wir später bei Knopf B, nachdem wir die Anzahl reduziert haben, auch die Anzahl anzeigen möchten, erstellen wir eine Funktion **zeigePersonenanzahl** für diese Aufgabe.
+Da wir später bei Knopf B auch die Anzahl anzeigen möchten, nutzen wir eine Funktion **zeigePersonenanzahl** für diese Aufgabe:
 * Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion **zeigePersonenanzahl**.
 * Nimm den Block ``||basic:Zeige Zahl|`` aus dem "beim Start" und ziehe diese in die soeben angelegte Funktion. 
 * Hol dir den Block ``||functions:Aufruf zeigePersonenanzahl |`` und ziehe diesen in den Block **beim Start**.
@@ -74,10 +76,14 @@ Da wir später bei Knopf B, nachdem wir die Anzahl reduziert haben, auch die Anz
 Wird die Zahl 0 dargestellt?
 
 ```blocks
+// @highlight
 function zeigePersonenanzahl () {
+    // @highlight
     basic.showNumber(anzahlPersonenInWarteschlange)
 }
 let anzahlPersonenInWarteschlange = 0
+anzahlPersonenInWarteschlange = 0
+// @highlight
 zeigePersonenanzahl()
 ```
 
@@ -85,23 +91,28 @@ zeigePersonenanzahl()
 
 Um die Anzahl an Personen in der Warteschlange zu erhöhen, nutzen wir eine logische Abfrage in der **dauerhaft**-Schleife:
 * Hole dir den Block ``||logic:Wenn wahr dann||`` Block und ziehe diesen in die dauerhaft-Schleife.
-* Ziehe den den Block ``||input:Knopf A ist geklickt||`` anstatt **wahr** in die ``||logic:Wenn wahr dann||`` .
+* Ziehe den Block ``||input:Knopf A ist geklickt||`` anstatt **wahr** in die ``||logic:Wenn wahr dann||`` .
 * Um die Variable **anzahlPersonenInWarteschlange** zu erhöhen, nutze ``||variables:ändere anzahlPersonenInWarteschlange|`` um 1.
 * Um den aktuellen Wert anzuzeigen, hole dir den Block ``||functions:Aufruf zeigePersonenanzahl|`` und ziehe diesen Block an das Ende in die **Wenn Kopf A ist geklickt dann**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
 Wird die am Beginn die Zahl 0 dargestellt?<br />
-Drücke Knopf A und beobachte was passiert?<br />
+Drücke Knopf A und beobachte, was passiert?<br />
 Wird dir 1, 2, 3, ... angezeigt bzw. die Anzahl der Personen in der Warteschlange erhöht?
 
 ```blocks
+// @hide
 function zeigePersonenanzahl() {
     basic.showNumber(anzahlPersonenInWarteschlange)
 }
 let anzahlPersonenInWarteschlange = 0
+anzahlPersonenInWarteschlange = 0
 zeigePersonenanzahl()
 basic.forever(function () {
+    // @highlight
     if (input.buttonIsPressed(Button.A)) {
+        // @highlight
         anzahlPersonenInWarteschlange += 1
+        // @highlight
         zeigePersonenanzahl()
     }
 })
@@ -115,25 +126,30 @@ Um die Anzahl an Personen in der Warteschlange mit Knopf B zu reduzieren, nutzen
 * Um die Variable **anzahlPersonenInWarteschlange** zu reduzieren, nutze ``||variables:ändere anzahlPersonenInWarteschlange|`` um -1.
 * Um den aktuellen Wert anzuzeigen, nutzen wir wieder den Block ``||functions:Aufruf zeigePersonenanzahl|``. Ziehe diesen Block an das Ende in die **Wenn Kopf B ist geklickt dann**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
-Drücke Knopf B und beobachte was passiert?<br />
+Drücke Knopf B und beobachte, was passiert?<br />
 Wird dir -1, -2, -3, ... angezeigt bzw. die Anzahl der Personen in der Warteschlange reduziert?
 
 **Eine negative Anzahl an Personen in einer Warteschlange macht keinen Sinn!**<br />
-Wir müssen unser Programm noch erweitern...
+Wir müssen unser Programm noch erweitern ...
 
 ```blocks
+// @hide
 function zeigePersonenanzahl() {
     basic.showNumber(anzahlPersonenInWarteschlange)
 }
 let anzahlPersonenInWarteschlange = 0
+anzahlPersonenInWarteschlange = 0
 zeigePersonenanzahl()
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         anzahlPersonenInWarteschlange += 1
         zeigePersonenanzahl()
     }
+    // @highlight
     if (input.buttonIsPressed(Button.B)) {
+        // @highlight
         anzahlPersonenInWarteschlange += -1
+        // @highlight
         zeigePersonenanzahl()
     }
 })
@@ -143,12 +159,12 @@ basic.forever(function () {
 
 Damit die Anzahl an Personen in der Warteschlange nicht negativ werden kann, setzen wir in derartigen Fällen die Variable **anzahlPersonenInWarteschlange** auf 0:
 * Hole dir den Block ``||logic:Wenn wahr dann||`` und ziehe diesen nach den Block ``||variables:ändere anzahlPersonenInWarteschlange||`` um -1.
-* Ziehe den Vergleich-Block ``||input:0 < 0||`` anstatt **wahr** in die ``||logic:Wenn wahr dann||``.
+* Ziehe den Vergleichsblock ``||logic:0 < 0||`` anstatt **wahr** in die ``||logic:Wenn wahr dann||``.
 * Da wir wissen möchten, ob die Variable **anzahlPersonenInWarteschlange** negativ ist, ziehe die Variable ``||variables:anzahlPersonenInWarteschlange|`` anstatt den ersten **0** in den Vergleich. Dies prüft, ob der aktuelle Wert der Variable **anzahlPersonenInWarteschlange** kleiner als 0 ist.
 * Wenn das der Fall ist, setzen wir die Variable **anzahlPersonenInWarteschlange** auf 0. Ziehe dazu den Block ``||variables:setze anzahlPersonenInWarteschlange|`` auf 0 in die **Wenn anzahlPersonenInWarteschlange < 0**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
 Drücke Knopf B und prüfe, ob die Anzahl nicht mehr negativ wird?<br />
-Prüfe, ob mit Knopf A die Anzahl erhöht und mit Knopf B die Anzahl reduziert wird...
+Prüfe, ob mit Knopf A die Anzahl erhöht und mit Knopf B die Anzahl reduziert wird ...
 
 ```blocks
 function zeigePersonenanzahl() {
@@ -163,7 +179,9 @@ basic.forever(function () {
     }
     if (input.buttonIsPressed(Button.B)) {
         anzahlPersonenInWarteschlange += -1
+        // @highlight
         if (anzahlPersonenInWarteschlange < 0) {
+            // @highlight
             anzahlPersonenInWarteschlange = 0
         }
         zeigePersonenanzahl()

@@ -64,25 +64,3 @@ basic.forever(function () {
     basic.clearScreen()
 })
 ```
-
-```template
-function zeigePersonenanzahl () {
-    basic.showNumber(anzahlPersonenInWarteschlange)
-}
-let anzahlPersonenInWarteschlange = 0
-anzahlPersonenInWarteschlange = 0
-zeigePersonenanzahl()
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.A)) {
-        anzahlPersonenInWarteschlange += 1
-        zeigePersonenanzahl()
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        anzahlPersonenInWarteschlange += -1
-        if (anzahlPersonenInWarteschlange < 0) {
-            anzahlPersonenInWarteschlange = 0
-        }
-        zeigePersonenanzahl()
-    }
-})
-```
