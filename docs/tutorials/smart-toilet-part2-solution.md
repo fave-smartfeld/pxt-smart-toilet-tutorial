@@ -10,11 +10,9 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 * Unten die Lösung von Tutorial Teil 2 
 * Drücke 📥`|Download|` und teste das Programm.
 
-
 ```template
 function macheFrei () {
     statusFreiOderBesetzt = 1
-    sendeDaten(statusFreiOderBesetzt)
     basic.showLeds(`
         . . # . .
         . # # # .
@@ -22,10 +20,10 @@ function macheFrei () {
         . . # . .
         . . # . .
         `)
+    sendeDaten(statusFreiOderBesetzt)
 }
 function macheBesetzt () {
     statusFreiOderBesetzt = 0
-    sendeDaten(statusFreiOderBesetzt)
     basic.showLeds(`
         . . . . #
         . . . . #
@@ -33,9 +31,13 @@ function macheBesetzt () {
         # # # # #
         . # # # .
         `)
+    sendeDaten(statusFreiOderBesetzt)
 }
 input.onButtonPressed(Button.A, function () {
     macheBesetzt()
+})
+input.onButtonPressed(Button.B, function () {
+    macheFrei()
 })
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
@@ -48,9 +50,6 @@ function sendeDaten (status: number) {
         spaeterSenden = true
     }
 }
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
 let statusFreiOderBesetzt = 0
 let spaeterSenden = false
 let msBeiLetztemSenden = 0
@@ -80,35 +79,4 @@ loops.everyInterval(500, function () {
         sendeDaten(statusFreiOderBesetzt)
     }
 })
-```
-
-```template
-function macheFrei () {
-    statusFreiOderBesetzt += 1
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-}
-function macheBesetzt () {
-    statusFreiOderBesetzt = 0
-    basic.showLeds(`
-        . . . . #
-        . . . . #
-        . . . . #
-        # # # # #
-        . # # # .
-        `)
-}
-input.onButtonPressed(Button.A, function () {
-    macheBesetzt()
-})
-input.onButtonPressed(Button.B, function () {
-    macheFrei()
-})
-let statusFreiOderBesetzt = 0
-macheFrei()
 ```

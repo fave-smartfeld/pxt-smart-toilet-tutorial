@@ -35,25 +35,27 @@ Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Sta
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Den Status der Toilette 🚽 über LoRa🛜 sendet. 
 
-Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals den Teil 1 des Tutorials zu bearbeiten.
+Das vollständige Programm aus [Teil 1](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1) ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals diesen Teil des Tutorials zu bearbeiten.
 
 
 ## 🛜 Verbindung mit Internet aufbauen
 Am Beginn bauen wir eine Verbindung zum Internet auf. Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
 
-* Ziehe den Block 🛜``||IoTCube:LoRa Netzwerk-Verbindung||`` in ``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
+* Ziehe den Block 🛜 ``||IoTCube:LoRa Netzwerk-Verbindung||`` in ``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
 * Ziehe darunter den Block ``||loops:während falsch mache||`` hinein. Weil das Verbinden je nach Umständen 5 bis 30 Sekunden dauert, wollen wir in dieser Schleife verbleiben, solange die Verbindung noch **nicht** besteht.  
 * Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um den Wahrheitswert zu negieren.
-* Füge in den **nicht** Block nun 🛜``||IoTCube:Lese Gerätestatus-Bit||`` ein. Ändere darin das Bit auf "Verbunden". Der Code in der Schleife lautet nun "während nicht Lese gerätestatus-Bit verbunden". Programmierer/innen lesen den Code so: "Während das Gerät nicht verbunden ist." 
+* Füge in den **nicht** Block nun 🛜``||IoTCube:Lese Gerätestatus-Bit||`` ein. Ändere darin das Bit auf "Verbunden". Der Code in der Schleife lautet nun "während nicht Lese Gerätestatus-Bit verbunden". Programmierer/innen lesen den Code so: "Während das Gerät nicht verbunden ist." 
 * Warte in der Schleife 1 Sekunde (1000 ms). Nutze ``||basic:pausiere (ms)||``.
 
 ```blocks
+// @highlight
 IoTCube.LoRa_Join(
 eBool.enable,
 eBool.enable,
 10,
 8
 )
+// @highlight
 while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
     basic.showLeds(`
         # . # . #
@@ -65,11 +67,22 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
     basic.pause(1000)
 }
 macheFrei()
+// @hide
+function macheFrei () {
+    statusFreiOderBesetzt += 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
 ```
 
 
-## 🛜 Status Verbunden ✔ anzeigen
-Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können ersetzen das Verbindungssymbol kurz durch ein bestätigendes Symbol ✔.
+## 🛜 Status "Verbunden" ✔ anzeigen
+Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können das Verbindungssymbol durch ein bestätigendes Symbol ✔ ersetzen.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
 * Warte im Anschluss 5 Sekunden (5000 ms) ⏳. Nutze ``||basic:pausiere (ms)||``.
@@ -80,6 +93,18 @@ Wird dir zuvor 🔱 und im Anschluss das Symbol ✔ angezeigt?
 Wenn ja, dann ist dein IoT Cube mit dem Internet 😊 verbunden und kann Daten senden.
 
 ```blocks
+// @hide
+function macheFrei () {
+    statusFreiOderBesetzt += 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+
 IoTCube.LoRa_Join(
 eBool.enable,
 eBool.enable,
@@ -96,6 +121,7 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
         `)
     basic.pause(1000)
 }
+// @highlight
 basic.showIcon(IconNames.Yes)
 basic.pause(5000)
 macheFrei()
@@ -104,8 +130,8 @@ macheFrei()
 ## Status "Frei" beim Start senden - notwendige Variablen
 
 Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. 
-Das funktioniert auch, aber es ist zu beachten, dass nur alle 5 Sekunden eine Information an die Claviscloud 
-geschickt werden kann. Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten 
+Das funktioniert, aber es ist zu beachten, dass nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. 
+Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten 
 Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nutzen wir folgenden Variablen:
 
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
@@ -114,6 +140,18 @@ Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nut
 * Da wir uns soeben erst verbunden haben und die 5 Sekunden abgewartet haben, können wir die Variable **spaeterSenden** auf falsch setzen: ``||variables:setze sendeErlaubnis ||`` auf ``||logic:false ||``.
 
 ```blocks
+// @hide
+function macheFrei () {
+    statusFreiOderBesetzt += 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+// @highlight
 let msBeiLetztemSenden = control.millis()
 let spaeterSenden = false
 macheFrei()
@@ -278,3 +316,35 @@ function sendeDaten (status: number) {
 * Verbinde deine Smarte Toilette mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
 * Teste, ob die Daten korrekt angezeigt werden!
 * Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum testen: [Lösung Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2-solution)
+
+
+```template
+function macheFrei () {
+    statusFreiOderBesetzt += 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+}
+function macheBesetzt () {
+    statusFreiOderBesetzt = 0
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        . # # # .
+        `)
+}
+input.onButtonPressed(Button.A, function () {
+    macheBesetzt()
+})
+input.onButtonPressed(Button.B, function () {
+    macheFrei()
+})
+let statusFreiOderBesetzt = 0
+macheFrei()
+```
