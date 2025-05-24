@@ -20,7 +20,11 @@
         "docs/tutorials/smart-toilet-part1-solution.md",
         "docs/tutorials/smart-toilet-part2-solution.md",
         "docs/tutorials/warteschlange-part1-solution.md",
-        "docs/tutorials/warteschlange-part2-solution.md"
+        "docs/tutorials/warteschlange-part2-solution.md",
+        "docs/tutorials/smart-toilet-variant-part2-solution.md",
+        "docs/tutorials/smart-toilet-variant-part1-solution.md",
+        "docs/tutorials/smart-toilet-variant-part1.md",
+        "docs/tutorials/smart-toilet-variant-part2.md"
     ],
     "testFiles": [
         "test.ts"

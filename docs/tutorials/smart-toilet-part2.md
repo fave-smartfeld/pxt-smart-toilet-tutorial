@@ -30,15 +30,16 @@ Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedien
 ## Lernergebnis
 
 Aus dem Tutorial Teil 1 hast du bereits ein Programm, das den Status der Toilette "Besetzt" | "Frei" simuliert. 
-Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Status ins Internet senden. Am Ende hast du ein funktionsfähiges Programm, das...
+Nun wollen wir den Status der Toilette "Besetzt" | "Frei" über LoRa🛜 den Status ins Internet senden. Am Ende hast du ein funktionsfähiges Programm, das ...
 
 * Eine LoRa-Verbindung🛜 aufbaut. 
 * Den Status der Toilette 🚽 über LoRa🛜 sendet. 
 
-Das vollständige Programm aus [Teil 1](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1) ist bereits integriert. Falls dir etwas unklar ist, überlege nochmals diesen Teil des Tutorials zu bearbeiten.
+Das vollständige Programm aus [Teil 1](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1) ist bereits integriert. Falls dir etwas unklar ist, überlege, nochmals diesen Teil des Tutorials zu bearbeiten.
 
 
 ## 🛜 Verbindung mit Internet aufbauen
+
 Am Beginn bauen wir eine Verbindung zum Internet auf. Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
 
 * Ziehe den Block 🛜 ``||IoTCube:LoRa Netzwerk-Verbindung||`` in ``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
@@ -82,6 +83,7 @@ function macheFrei () {
 
 
 ## 🛜 Status "Verbunden" ✔ anzeigen
+
 Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können das Verbindungssymbol durch ein bestätigendes Symbol ✔ ersetzen.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
@@ -90,7 +92,7 @@ Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können das Ver
 
 Wird dir zuvor 🔱 und im Anschluss das Symbol ✔ angezeigt?
 
-Wenn ja, dann ist dein IoT Cube mit dem Internet 😊 verbunden und kann Daten senden.
+Wenn ja, dann ist dein IoT-Cube mit dem Internet 😊 verbunden und kann Daten senden.
 
 ```blocks
 // @hide
@@ -123,19 +125,20 @@ while (!(IoTCube.getStatus(eSTATUS_MASK.JOINED))) {
 }
 // @highlight
 basic.showIcon(IconNames.Yes)
+// @highlight
 basic.pause(5000)
 macheFrei()
 ```
 
-## Status "Frei" beim Start senden - notwendige Variablen
+## Status "Frei" beim Start senden - Variablen
 
 Zu Beginn ist die Toilette immer frei, d.h. wir wollen nach dem Verbindungsaufbau diesen Status senden. 
 Das funktioniert, aber es ist zu beachten, dass nur alle 5 Sekunden eine Information an die Claviscloud geschickt werden kann. 
 Deshalb müssen wir manchmal etwas abwarten ⏳ und uns den Zeitpunkt des letzten 
-Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nutzen wir folgenden Variablen:
+Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nutzen wir folgende Variablen:
 
-* Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||``und benenne sie mit **msBeiLetztemSenden**.
-* Die Millisekunden seit dem letzten Senden entsprechend den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
+* Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **msBeiLetztemSenden**.
+* Die Millisekunden seit dem letzten Senden entsprechen den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
 * Gleichfalls benötigen wir für den Status, ob wir die Daten später senden müssen, eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **spaeterSenden**.
 * Da wir uns soeben erst verbunden haben und die 5 Sekunden abgewartet haben, können wir die Variable **spaeterSenden** auf falsch setzen: ``||variables:setze sendeErlaubnis ||`` auf ``||logic:false ||``.
 
@@ -153,6 +156,7 @@ function macheFrei () {
 }
 // @highlight
 let msBeiLetztemSenden = control.millis()
+// @highlight
 let spaeterSenden = false
 macheFrei()
 ```
@@ -163,7 +167,7 @@ Am Beginn legen wir eine Funktion **sendeDaten** an, welche den zu sendenden Sta
 
 * Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion "sendeDaten". Zudem **Füge einen Parameter** mit dem Datentyp für eine **Zahl** mit dem Namen **status** hinzu. 
 * Hol dir den Block ``||logic:Wenn dann ansonsten |`` und ziehe diesen in den Block der Funktion **sendeDaten**.
-* Nutze in der Wenn-Bedingung einen Vergleich ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
+* Nutze in der Wenn-Bedingung einen ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
 * Um zu prüfen, ob 5 Sekunden bereits abgelaufen sind, muss die aktuelle Zeit mit den **msBeiLetztemSenden** verglichen werden. Deshalb ziehe die aktuellen Millisekunden  ``||control:Millisekunden||`` 🕒 in den linken Bereich des Vergleiches.
 * Im rechten Bereich des Vergleiches ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleiches der Wenn-Bedingung.
 * Nutze die ``||variables:msBeiLetztemSenden |`` und addiere 5000 Millisekunden.
@@ -171,7 +175,9 @@ Am Beginn legen wir eine Funktion **sendeDaten** an, welche den zu sendenden Sta
 Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umgesetzt hast.
 
 ```blocks
+// @highlight
 function sendeDaten (status: number) {
+    // @highlight
     if (control.millis() > msBeiLetztemSenden + 5000) {
 
     } else {
@@ -196,10 +202,15 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 ```blocks
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
+        // @highlight
         IoTCube.addBinary(eIDs.ID_0, status)
+        // @highlight
         IoTCube.SendBufferSimple()
+        // @highlight
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+        // @highlight
         spaeterSenden = false
+        // @highlight
         msBeiLetztemSenden = control.millis()
     } else {
 
@@ -224,6 +235,7 @@ function sendeDaten (status: number) {
         spaeterSenden = false
         msBeiLetztemSenden = control.millis()
     } else {
+        // @highlight
         spaeterSenden = true
     }
 }
@@ -238,7 +250,7 @@ Nachdem du die Funktion **sendeDaten** korrekt erstellt hast, nutzen wir diese z
 * Drücke 📥`|Download|` und drücke Knopf A, um zu simulieren, dass die Toilette besetzt ist.
 
 Wird der Ton abgespielt? Wenn ja, dann werden die Daten an die Claviscloud gesendet? 
-Überprüfe dies indem du prüfst, ob dein IoT Cube unter den Geräten aktiv ist!
+Überprüfe dies, indem du prüfst, ob dein IoT-Cube unter den Geräten aktiv ist!
 
 Wenn nein, dann hast du nicht lange genug (5 Sekunden) gewartet. Diesen Fall lösen wir im nächsten Schritt. 
 
@@ -252,6 +264,7 @@ function macheFrei () {
         . . # . .
         . . # . .
         `)
+    // @highlight
     sendeDaten(statusFreiOderBesetzt)
 }
 function macheBesetzt () {
@@ -263,8 +276,10 @@ function macheBesetzt () {
         # # # # #
         . # # # .
         `)
+    // @highlight
     sendeDaten(statusFreiOderBesetzt)
 }
+// @hide
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
         IoTCube.addBinary(eIDs.ID_0, status)
@@ -278,11 +293,11 @@ function sendeDaten (status: number) {
 }
 ```
 
-## Dauerhaft prüfen, ob Daten zum Senden bereit liegen
+## Dauerhaft prüfen, ob Daten zum Senden bereitstehen
 
-Wir müssen noch den Fehler / Fall bearbeiten, wenn Daten nicht unmittelbar gesendet werden konnten. Dazu: 
+Wir müssen noch den Fehler/Fall bearbeiten, wenn Daten nicht unmittelbar gesendet werden konnten. Dazu: 
 
-* Hol dir den Block ``||loops: alle 500ms ||`` und ziehe in einen freien Bereich.
+* Hol dir den Block ``||loops: alle 500ms ||`` und ziehe ihn in einen freien Bereich.
 * Hol dir den Block ``||logic: wenn dann ||`` und ziehe diesen in den Block der soeben erstellten Schleife, welche alle 500 Millisekunden ausgeführt wird.
 * Die Bedingung im Wenn-Block prüft, ob die Variable ``||variables: spaeterSenden ||`` wahr ist. 
 * In diesem Fall muss die Funktion ``||functions: sendeDaten(statusFreiOderBesetzt) ||`` aufgerufen werden.
@@ -290,14 +305,18 @@ Wir müssen noch den Fehler / Fall bearbeiten, wenn Daten nicht unmittelbar gese
 
 Wenn sich das Symbol gleich ändert, aber der Ton erst später abgespielt wird, dann hat alles funktioniert.
 
-Wenn nicht, dann vergleiche deinen Code mit dem Code der Lösung, welche du [hier](https://makecode.microbit.org/_40wczFToxVE9) findest.
+Wenn nicht, dann vergleiche deinen Code mit dem Code der Lösung, welche du [hier](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2-solution) findest.
 
 ```blocks
+// @highlight
 loops.everyInterval(500, function () {
+    // @highlight
     if (spaeterSenden) {
+        // @highlight
         sendeDaten(statusFreiOderBesetzt)
     }
 })
+// @hide
 function sendeDaten (status: number) {
     if (control.millis() > msBeiLetztemSenden + 5000) {
         IoTCube.addBinary(eIDs.ID_0, status)
@@ -315,7 +334,7 @@ function sendeDaten (status: number) {
 
 * Verbinde deine Smarte Toilette mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
 * Teste, ob die Daten korrekt angezeigt werden!
-* Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum testen: [Lösung Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2-solution)
+* Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum Testen: [Lösung Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part2-solution)
 
 
 ```template
