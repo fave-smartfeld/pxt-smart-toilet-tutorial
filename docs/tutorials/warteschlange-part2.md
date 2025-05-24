@@ -6,15 +6,15 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 # Warteschlangen Tutorial - Teil 2
 
-## 📗 Einführung,  Teil 2
+## 📗 Einführung, Teil 2
 
-**Vorraussetzungen**
+**Voraussetzungen**
 
 🌱 IoT Basics abgeschlossen und Warteschlangen Tutorial [Teil 1 - ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/warteschlange-part1) abgeschlossen.
 
 Schwierigkeitsgrad: 🔥🔥⚪⚪
 
-## 👁️ Vorraussetzungen @showdialog
+## 👁️ Voraussetzungen @showdialog
 * Schliesse den Cube so an, falls noch nicht gemacht:
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
 * Stelle die Schalter vorerst so ein:
@@ -25,6 +25,7 @@ Schwierigkeitsgrad: 🔥🔥⚪⚪
 * Ein LoRa-Gateway🛜 muss in Reichweite sein, welches mit TTN (The Things Network) verbunden ist.
 Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedienen.
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/gateway-klein.png)
+
 
 ## Lernergebnis
 

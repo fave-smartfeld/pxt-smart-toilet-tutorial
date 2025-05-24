@@ -6,20 +6,20 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 # Smart Toilet Tutorial - Teil 1
 
-## 📗 Einführung,  Teil 1
+## 📗 Einführung, Teil 1
 
 **Voraussetzungen**
 * Micro:Bit Basics: 
     * Du kannst Programme erstellen und herunterladen.
     * Du kennst die Einstiegspunkte "Beim Start" und "Dauerhaft".
-    * Dir ist klar, dass Programme in der Regel schrittweise (von oben nach unten) abgearbeitet werden. Zudem kannst Du Schleifen und Verzweigungen einsetzen.
+    * Dir ist klar, dass Programme in der Regel schrittweise (von oben nach unten) abgearbeitet werden. Zudem kannst du Schleifen und Verzweigungen einsetzen.
     * Es ist bekannt, dass Kategorien einzelne Blöcke (z.B. ``||basic:Grundlagen||``) beinhalten, welche in Programmen genutzt werden können.
     * Variablen können erstellt, verwendet und verändert werden.
 
 Schwierigkeitsgrad: 🔥⚪⚪⚪
 
-## 👁️ Vorraussetzungen @showdialog
-* Für Teil 1 brauchst Du grundsätzlich nur einen Micro:Bit. 
+## 👁️ Voraussetzungen @showdialog
+* Für Teil 1 brauchst du grundsätzlich nur einen Micro:Bit. 
 * Falls du lieber gleich den IoT- Cube nehmen möchtest, kannst du ihn so anschliessen. Achte auf
 die rote Markierung:
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)

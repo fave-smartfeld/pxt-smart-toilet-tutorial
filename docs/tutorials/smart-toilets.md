@@ -12,7 +12,7 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 * Klicke auf das 💡- Symbol, falls Du zusätzliche Hilfe brauchst und um deinen Code zu überprüfen.
 
 ## Einführung 
-Vorraussetzungen: 🌱 IoT Basics abgeschlossen  
+Voraussetzungen: 🌱 IoT Basics abgeschlossen  
 Schwierigkeitsgrad: 🔥⚪⚪⚪
 
 In diesem Tutorial baust du Schritt für Schritt ein Programm auf, das eine Toilette simuliert und die Daten über 🛜 LoRa ins Internet sendet. Das Tutorial ist in zwei Teile aufgeteilt.

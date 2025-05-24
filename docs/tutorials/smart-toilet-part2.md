@@ -6,14 +6,15 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 
 # Smart Toilet Tutorial - Teil 2
 
-## 📗 Einführung,  Teil 2
+## 📗 Einführung, Teil 2
 
-**Vorraussetzungen**
+**Voraussetzungen**
+
 🌱 IoT Basics abgeschlossen und Smart Toilet Tutorial [Teil 1 - noch ohne Internetverbindung](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-part1) abgeschlossen.
 
 Schwierigkeitsgrad: 🔥🔥⚪⚪
 
-## 👁️ Vorraussetzungen @showdialog
+## 👁️ Voraussetzungen @showdialog
 * Schliesse den Cube so an, falls noch nicht gemacht:
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
 * Stelle die Schalter vorerst so ein:
@@ -24,6 +25,7 @@ Schwierigkeitsgrad: 🔥🔥⚪⚪
 * Ein LoRa-Gateway🛜 muss in Reichweite sein, welches mit TTN (The Things Network) verbunden ist.
 Dies ist im Klassensatz einmal vorhanden und kann hunderte von IoT- Cubes bedienen.
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/gateway-klein.png)
+
 
 ## Lernergebnis
 
@@ -37,19 +39,12 @@ Das vollständige Programm aus Teil 1 ist bereits integriert. Falls dir etwas un
 
 
 ## 🛜 Verbindung mit Internet aufbauen
-Am Beginn bauen wir eine Verbindung zum Internet auf.
-Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
+Am Beginn bauen wir eine Verbindung zum Internet auf. Auf der LED-Matrix wollen wir den Verbindungsaufbau mit **🔱** anzeigen.
 
-* Ziehe den Block 🛜``||IoTCube:LoRa Netzwerk-Verbindung||`` in 
-``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
-* Ziehe darunter den Block ``||loops:während falsch mache||`` hinein. Weil
-das Verbinden je nach Umständen 5 is 30 Sekunden dauert, wollen wir in dieser
-Schleife verbleiben, solange die Verbindung noch **nicht** besteht.  
-* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife,
-um den Wahrheitswert zu negieren.
-* Füge in den **nicht** Block nun 🛜``||IoTCube:Lese Gerätestatus-Bit||`` ein.
-Ändere darin das Bit auf "Verbunden". Der Code in der Schleife lautet nun "während nicht Lese gerätestatus-Bit verbunden". Programmierer/innen lesen den Code so: 
-"Während das Gerät nicht verbunden ist." 
+* Ziehe den Block 🛜``||IoTCube:LoRa Netzwerk-Verbindung||`` in ``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
+* Ziehe darunter den Block ``||loops:während falsch mache||`` hinein. Weil das Verbinden je nach Umständen 5 bis 30 Sekunden dauert, wollen wir in dieser Schleife verbleiben, solange die Verbindung noch **nicht** besteht.  
+* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um den Wahrheitswert zu negieren.
+* Füge in den **nicht** Block nun 🛜``||IoTCube:Lese Gerätestatus-Bit||`` ein. Ändere darin das Bit auf "Verbunden". Der Code in der Schleife lautet nun "während nicht Lese gerätestatus-Bit verbunden". Programmierer/innen lesen den Code so: "Während das Gerät nicht verbunden ist." 
 * Warte in der Schleife 1 Sekunde (1000 ms). Nutze ``||basic:pausiere (ms)||``.
 
 ```blocks
