@@ -4,7 +4,7 @@ sensors=github:Smartfeld/pxt-sensorikAktorikSmartfeld
 ```
 ### @explicitHints false
 
-# Smart Toilet Variante Teil 1
+# Smart Toilet Teil 1
 ## Lösung
 
 * Unten die Lösung von Tutorial Teil 1 
