@@ -169,8 +169,8 @@ Am Beginn legen wir eine Funktion **sendeDaten** an, welche den zu sendenden Sta
 * Hol dir den Block ``||logic:Wenn dann ansonsten |`` und ziehe diesen in den Block der Funktion **sendeDaten**.
 * Nutze in der Wenn-Bedingung einen ``||logic:Vergleich für Dezimalzahlen |`` und ändere das Vergleichssymbol auf **>**. 
 * Um zu prüfen, ob 5 Sekunden bereits abgelaufen sind, muss die aktuelle Zeit mit den **msBeiLetztemSenden** verglichen werden. Deshalb ziehe die aktuellen Millisekunden  ``||control:Millisekunden||`` 🕒 in den linken Bereich des Vergleiches.
-* Im rechten Bereich des Vergleiches ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleiches der Wenn-Bedingung.
-* Nutze die ``||variables:msBeiLetztemSenden |`` und addiere 5000 Millisekunden.
+* Im rechten Bereich des Vergleiches ergänze eine mathematische Berechnung. Denn die aktuelle Zeit muss mindestens um 5 Sekunden (5000 Millisekunden) grösser sein als die letzte Sendezeit. Somit warten wir sicherheitshalber 6 Sekunden. Ziehe den Block ``||math: + ||`` in den rechten Bereich des Vergleiches der Wenn-Bedingung.
+* Nutze die ``||variables:msBeiLetztemSenden |`` und addiere 6000 Millisekunden.
 
 Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umgesetzt hast.
 
@@ -178,7 +178,7 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 // @highlight
 function sendeDaten (status: number) {
     // @highlight
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
 
     } else {
     }
@@ -201,7 +201,7 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 
 ```blocks
 function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
         // @highlight
         IoTCube.addBinary(eIDs.ID_0, status)
         // @highlight
@@ -228,7 +228,7 @@ Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umg
 
 ```blocks
 function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
@@ -281,7 +281,7 @@ function macheBesetzt () {
 }
 // @hide
 function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
@@ -318,7 +318,7 @@ loops.everyInterval(500, function () {
 })
 // @hide
 function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)

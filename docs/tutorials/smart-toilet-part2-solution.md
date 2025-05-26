@@ -40,7 +40,7 @@ input.onButtonPressed(Button.B, function () {
     macheFrei()
 })
 function sendeDaten (status: number) {
-    if (control.millis() > msBeiLetztemSenden + 5000) {
+    if (control.millis() > msBeiLetztemSenden + 6000) {
         IoTCube.addBinary(eIDs.ID_0, status)
         IoTCube.SendBufferSimple()
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
