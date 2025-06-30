@@ -78,9 +78,9 @@ basic.showLeds(`
 
 ## Funktion für das Setzen des Status "Frei" ⬆️ der Toilette
 Da wir später (Knopf B) auch den Status der Toilette setzen, nutzen wir eine Funktion für diese Aufgabe.
-* Hol dir den Block aus Fortgeschritten - Funktionen ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheFrei**.
+* Öffne dazu den "Fortgeschritten" Bereich und hol dir unter Funktionen den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheFrei**.
 * Nimm die beiden zuvor erstellten Befehle aus dem Start Block und ziehe sie in die neue Funktion. 
-* Hol dir den Block aus Fortgeschritten - Funktionen ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **beim Start**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **beim Start**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
 ⬛⬛🟥⬛⬛   
 ⬛🟥🟥🟥⬛  
@@ -138,9 +138,9 @@ let statusFreiOderBesetzt = 0
 
 ## Funktion für das Setzen des Status "Besetzt" 🚽 der Toilette
 Ähnlich zur Funktion **macheFrei** erstelle eine Funktion für **macheBesetzt** und nutze diese.
-* Hol dir den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheBesetzt**.
+* Falls geschlossen, öffne wieder den Bereich Fortgeschritten und hol dir aus Funktionen den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheBesetzt**.
 * Nimm die beiden zuvor angelegten Schritte aus dem "Wenn Knopf A geklickt" und ziehe diese in die Funktion.
-* Hol dir den Block ``||functions:Aufruf macheBesetzt |`` und ziehe diesen in den Block **Wenn Kopf A geklickt**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheBesetzt |`` und ziehe diesen in den Block **Wenn Kopf A geklickt**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige, wenn du Knopf B gedrückt hast:  
 ⬛⬛⬛⬛🟥   
 ⬛⬛⬛⬛🟥  
@@ -170,9 +170,9 @@ let statusFreiOderBesetzt = 0
 
 ## Status der Toilette mit Knopf B auf "Frei" setzen  
 Um den Status der Toilette auf "Frei" zu setzen, nutzen wir ``||input:Knopf B ist geklickt||``:
-* Hole dir den  ``||input:Knopf A ist geklickt||`` Block. 
+* Hole dir den ``||input:Knopf A ist geklickt||`` Block. 
 * Ändere "A" auf "B", damit du auf den Knopf "B" reagieren kannst: ``||input:Knopf B ist geklickt||``
-* Hol dir den Block ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **Wenn Kopf B geklickt**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **Wenn Kopf B geklickt**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige, nach dem Einschalten ⬆️, wenn du Knopf A 🚽 und dann B ⬆️ gedrückt hast. 
 
 Werden dir die korrekten Symbole für den Status der Toilette angezeigt?

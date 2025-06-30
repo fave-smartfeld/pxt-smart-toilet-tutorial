@@ -44,9 +44,9 @@ Am Beginn bauen wir eine Verbindung zum Internet auf. Auf der LED-Matrix wollen 
 
 * Ziehe den Block 🛜 ``||IoTCube:LoRa Netzwerk-Verbindung||`` in ``||basic:beim Start||`` vor den Funktionsaufruf **macheFrei** hinein.
 * Ziehe darunter den Block ``||loops:während falsch mache||`` hinein. Weil das Verbinden je nach Umständen 5 bis 30 Sekunden dauert, wollen wir in dieser Schleife verbleiben, solange die Verbindung noch **nicht** besteht.  
-* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um den Wahrheitswert zu negieren.
+* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um abzufragen, ob der IoT-Cube bereits mit dem Internet verbunden ist.
 * Füge in den **nicht** Block nun 🛜``||IoTCube:Lese Gerätestatus-Bit||`` ein. Ändere darin das Bit auf "Verbunden". Der Code in der Schleife lautet nun "während nicht Lese Gerätestatus-Bit verbunden". Programmierer/innen lesen den Code so: "Während das Gerät nicht verbunden ist." 
-* Warte in der Schleife 1 Sekunde (1000 ms). Nutze ``||basic:pausiere (ms)||``.
+* ``||basic:Zeige LEDs|`` ähnlich dem Symbol **🔱** an und warte in der Schleife 1 Sekunde (1000 ms). Nutze ``||basic:pausiere (ms)||``.
 
 ```blocks
 // @highlight
@@ -87,7 +87,7 @@ function macheFrei () {
 Die Schleife wird beendet, wenn die Verbindung besteht, d.h. wir können das Verbindungssymbol durch ein bestätigendes Symbol ✔ ersetzen.
 
 * Ziehe den Block ``||basic:zeige Symbol ✔ ||`` nach der **Während** Schleife und vor den Aufruf der Funktion **macheFrei**.
-* Warte im Anschluss 5 Sekunden (5000 ms) ⏳. Nutze ``||basic:pausiere (ms)||``.
+* Warte im Anschluss, nachdem das Symbol angezeigt wurde, noch 5 Sekunden (5000 ms) ⏳, bevor die Funktion **macheFrei** aufgerufen wird. Nutze ``||basic:pausiere (ms)||``.
 * Drücke 📥`|Download|` und kontrolliere die Anzeige auf der LED-Matrix.
 
 Wird dir zuvor 🔱 und im Anschluss das Symbol ✔ angezeigt?
@@ -140,7 +140,7 @@ Sendevorganges merken und einen Status **spaeterSenden** ⏲️ nutzen. Dazu nut
 * Um die Millisekunden seit dem letzten Senden zu wissen, benötigen wir eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **msBeiLetztemSenden**.
 * Die Millisekunden seit dem letzten Senden entsprechen den aktuellen Millisekunden. Setze deshalb nach dem erfolgreichen Verbinden bzw. dem Symbol ✔ die Variable auf ``||control:Millisekunden||`` 🕒.
 * Gleichfalls benötigen wir für den Status, ob wir die Daten später senden müssen, eine Variable: ``||variables:Erstelle eine Variable...||`` und benenne sie mit **spaeterSenden**.
-* Da wir uns soeben erst verbunden haben und die 5 Sekunden abgewartet haben, können wir die Variable **spaeterSenden** auf falsch setzen: ``||variables:setze sendeErlaubnis ||`` auf ``||logic:false ||``.
+* Da wir uns soeben erst verbunden haben und die 5 Sekunden abgewartet haben, können wir die Variable **spaeterSenden** auf falsch setzen: ``||variables:setze spaeterSenden ||`` auf ``||logic:falsch ||``.
 
 ```blocks
 // @hide
@@ -188,7 +188,7 @@ function sendeDaten (status: number) {
 
 ## Funktion zum Senden der Daten erstellen - Teil 2
 
-Jetzt legen wir fest, was passiert, wenn wir senden dürfen:
+Jetzt legen wir fest, was passiert, wenn wir senden dürfen. Alle folgenden Blöcke kommen in den oberen Bereich, wenn die Bedingung erfüllt ist:
 
 * Hol dir den Block ``||IoTCube: Wahrheitswert mit der ID_0 ||`` und setze den Wert auf den **status** (= übergebener Parameter der Funktion). Dazu musst du den Parameter **status** anklicken und in den dafür vorgesehenen Bereich ziehen.
 * Im Anschluss kannst du die Daten mit ``||IoTCube: Sende Daten ||``.
@@ -220,9 +220,9 @@ function sendeDaten (status: number) {
 
 ## Funktion zum Senden der Daten erstellen - Teil 3
 
-Jetzt legen wir fest, was passiert, wenn wir nicht unmittelbar senden können:
+Jetzt legen wir fest, was passiert, wenn wir nicht unmittelbar senden können. Alle nun folgenden Blöcke kommen in den Bereich **ansonsten**:
 
-* Setze  **spaeterSenden** auf wahr: ``||variables:setze spaeterSenden ||`` auf ``||logic:true ||``.
+* Setze  **spaeterSenden** auf wahr: ``||variables:setze spaeterSenden ||`` auf ``||logic:wahr ||``.
 
 Klicke auf das 💡- Symbol, um zu überprüfen, ob du alle Schritte korrekt umgesetzt hast.
 
@@ -245,8 +245,8 @@ function sendeDaten (status: number) {
 
 Nachdem du die Funktion **sendeDaten** korrekt erstellt hast, nutzen wir diese zum Senden des aktuellen Status:
 
-* Ergänze in der Funktion **macheFrei** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
-* Ergänze in der Funktion **macheBesetzt** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||``.
+* Ergänze in der Funktion **macheFrei** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||`` mit der Variable **statusFreiOderBesetzt**.
+* Ergänze in der Funktion **macheBesetzt** nach der Anzeige der LED den Aufruf der Funktion: ``||functions: sendeDaten(statusFreiOderBesetzt) ||`` mit der Variable **statusFreiOderBesetzt**.
 * Drücke 📥`|Download|` und drücke Knopf A, um zu simulieren, dass die Toilette besetzt ist.
 
 Wird der Ton abgespielt? Wenn ja, dann werden die Daten an die Claviscloud gesendet? 

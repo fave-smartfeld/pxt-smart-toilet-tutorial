@@ -21,7 +21,7 @@ Schwierigkeitsgrad: 🔥⚪⚪⚪
 ## 👁️ Voraussetzungen @showdialog
 * Für Teil 1 brauchst du grundsätzlich nur einen Micro:Bit. 
 * Falls du lieber gleich den IoT- Cube nehmen möchtest, kannst du ihn so anschliessen. Achte auf
-die rote Markierung:
+die rote Markierung am USB Kabel und schliesse es wie folgt an:
 ![Bild](https://reifab.github.io/pxt-iot-tutorial/static/tutorials/iot-cube-anschliessen-klein.png)
 * Stelle die Schalter vorerst so ein:
     * Battery Switch: **off**
@@ -78,9 +78,9 @@ basic.showLeds(`
 
 ## Funktion für das Setzen des Status "Frei" ⬆️ der Toilette
 Da wir später (Knopf B) auch den Status der Toilette setzen, nutzen wir eine Funktion für diese Aufgabe.
-* Hol dir den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheFrei**.
-* Nimm die beiden zuvor angelegten Schritte aus dem "beim Start" und ziehe diese in die Funktion. 
-* Hol dir den Block ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **beim Start**.
+* Öffne dazu den "Fortgeschritten" Bereich und hol dir unter Funktionen den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheFrei**.
+* Nimm die beiden zuvor erstellten Befehle aus dem Start Block und ziehe sie in die neue Funktion. 
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **beim Start**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
 ⬛⬛🟥⬛⬛   
 ⬛🟥🟥🟥⬛  
@@ -144,9 +144,9 @@ let statusFreiOderBesetzt = 0
 ## Funktion für das Setzen des Status "Besetzt" 🚽 der Toilette
 
 Ähnlich zur Funktion **macheFrei** erstelle eine Funktion für **macheBesetzt** und nutze diese.
-* Hol dir den Block ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheBesetzt**.
+* Falls geschlossen, öffne wieder den Bereich Fortgeschritten und hol dir aus Funktionen den Block  ``||functions:Erstelle eine Funktion ...|`` und benenne die Funktion **macheBesetzt**.
 * Nimm die beiden zuvor angelegten Schritte aus der Abfrage **Wenn Kopf A geklickt** und ziehe diese in die Funktion **macheBesetzt**.
-* Hol dir den Block ``||functions:Aufruf macheBesetzt |`` und ziehe diesen in den Block **Wenn Kopf A geklickt**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheBesetzt |`` und ziehe diesen in den Block **Wenn Kopf A geklickt**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige, wenn du Knopf B gedrückt hast:  
 ⬛⬛⬛⬛🟥   
 ⬛⬛⬛⬛🟥  
@@ -182,7 +182,7 @@ Um den Status der Toilette auf "Frei" zu setzen, nutzen wir eine logische Abfrag
 * Hole dir den Block ``||logic:Wenn wahr dann||`` Block und ziehe diesen in die **dauerhaft**-Schleife nach **Wenn Knopf A geklickt**.
 * Ziehe den Block ``||input:Knopf A ist geklickt||`` anstatt **wahr** in die ``||logic:Wenn wahr dann||``.
 * Ändere "A" auf "B", damit du auf den Knopf "B" reagieren kannst: ``||input:Knopf B ist geklickt||``
-* Hol dir den Block ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **Wenn Kopf B geklickt**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf macheFrei |`` und ziehe diesen in den Block **Wenn Kopf B geklickt**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige, nach dem Einschalten ⬆️, wenn du Knopf A 🚽 und dann B ⬆️ gedrückt hast. 
 
 Werden dir die korrekten Symbole für den Status der Toilette angezeigt?
