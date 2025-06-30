@@ -65,7 +65,7 @@ Zuerst integrieren wir alle Schritte zum Verbindungsaufbau in die Funktion **ini
 Im nächsten Schritt zeigen wir den Status des Verbindungsaufbaus auf dem OLED an.
 * Ziehe den Block ``||IoTCube:LoRa Netzwerk-Verbindung||`` in die Funktion ``||functions:initialisiereLoRaVerbindung||``.
 * Ziehe darunter den Block ``||loops:während falsch mache||`` hinein. Weil das Verbinden je nach Umständen 5 bis 30 Sekunden dauert, wollen wir in dieser Schleife verbleiben, solange die Verbindung noch **nicht** besteht.  
-* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um den Wahrheitswert zu negieren.
+* Ziehe dazu den Block ``||Logic:nicht||`` auf die Schleife, um abzufragen, ob der IoT-Cube bereits mit dem Internet verbunden ist.
 * Füge in den **nicht** Block nun ``||IoTCube:Lese Gerätestatus-Bit||`` ein.
 Ändere darin das Gerätestatus-Bit auf **Verbunden**. Der Code in der Schleife lautet nun "während nicht Lese Gerätestatus-Bit verbunden". 
 Programmierer/innen lesen den Code so: "Während das Gerät nicht verbunden ist." 

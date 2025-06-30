@@ -69,9 +69,9 @@ basic.showNumber(anzahlPersonenInWarteschlange)
 ## Funktion für das Anzeigen der Anzahl der Personen auf der LED-Matrix
 
 Da wir später bei Knopf B auch die Anzahl anzeigen möchten, nutzen wir eine Funktion **zeigePersonenanzahl** für diese Aufgabe:
-* Hol dir den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion **zeigePersonenanzahl**.
+* Öffne dazu den "Fortgeschritten" Bereich und hol dir unter Funktionen den Block ``||functions:Erstelle eine Funktion...|`` und benenne die Funktion **zeigePersonenanzahl**.
 * Nimm den Block ``||basic:Zeige Zahl|`` aus dem "beim Start" und ziehe diese in die soeben angelegte Funktion. 
-* Hol dir den Block ``||functions:Aufruf zeigePersonenanzahl |`` und ziehe diesen in den Block **beim Start**.
+* Hol dir den Block unter Fortgeschritten - Funktionen ``||functions:Aufruf zeigePersonenanzahl |`` und ziehe diesen in den Block **beim Start**.
 * 📥 Drücke `|Download|` und kontrolliere die LED-Anzeige:  
 Wird die Zahl 0 dargestellt?
 
