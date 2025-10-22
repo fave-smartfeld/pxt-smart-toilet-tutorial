@@ -358,7 +358,7 @@ function sendeDaten (status: number) {
 }
 ```
 
-## Gratuliere 🏆 - du hast den Teil 2 des Tutorials erfolgreich bearbeitet 🚀
+## Gratuliere 🏆 - du hast den Teil 2 des Tutorials erfolgreich bearbeitet 🚀 
 
 Im nächsten Teil werden wir den Status der Toilette mit Hilfe eines Sensors anstatt über die Knöpfe A und B setzen.
 
