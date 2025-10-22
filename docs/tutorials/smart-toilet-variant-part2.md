@@ -358,10 +358,13 @@ function sendeDaten (status: number) {
 }
 ```
 
-## Gratuliere 🏆 - du hast das Tutorial erfolgreich bearbeitet 🚀
+## Gratuliere 🏆 - du hast den Teil 2 des Tutorials erfolgreich bearbeitet 🚀
+
+Im nächsten Teil werden wir den Status der Toilette mit Hilfe eines Sensors anstatt über die Knöpfe A und B setzen.
 
 * Verbinde deine Smarte Toilette mit dem Toiletten Widget der [Claviscloud](https://iot.claviscloud.ch/)! 
 * Teste, ob die Daten korrekt angezeigt werden!
+* Weiter gehts mit Teil 3: [Teil 3](https://makecode.microbit.org/#tutorial:github:reifab/pxt-iot-tutorial/docs/tutorials/smart-toilet-part-3)
 * Falls irgendwas noch nicht richtig läuft, hier hast Du eine funktionierende Version zum Testen: [Lösung Teil 2](https://makecode.microbit.org/#tutorial:github:fave-smartfeld/pxt-smart-toilet-tutorial/docs/tutorials/smart-toilet-variant-part2-solution)
 
 
