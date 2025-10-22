@@ -25,7 +25,8 @@
         "docs/tutorials/smart-toilet-variant-part1-solution.md",
         "docs/tutorials/smart-toilet-variant-part1.md",
         "docs/tutorials/smart-toilet-variant-part2.md",
-        "docs/tutorials/smart-toilets-variant.md"
+        "docs/tutorials/smart-toilets-variant.md",
+        "tutorial-info-cache.json"
     ],
     "testFiles": [
         "test.ts"
